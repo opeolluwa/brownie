@@ -1,0 +1,11 @@
+[package]
+name = "rustly"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+dotenv = "0.15.0"
+mysql = "22.2.0"
+dotenv_codegen = "0.15.0" # This is a dependency of dotenv to read env using a macro
