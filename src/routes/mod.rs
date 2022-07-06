@@ -3,13 +3,13 @@ use rocket_dyn_templates::{context, Template};
 //the home page
 #[get("/")]
 pub fn index() -> Template {
-    Template::render("index", context! { name:"drizzle" })
+    Template::render("index", context! { /* name:"drizzle" */ })
 }
 
 //the login page accessible only to unauthenticated users via /auth/login
 #[get("/login")]
-pub fn login() -> String {
-    "login".to_string()
+pub fn login() -> Template {
+    Template::render("auth/login", context! { /* name:"drizzle"  */})
 }
 
 //the sign up page accessible only to unauthenticated users via /auth/signup

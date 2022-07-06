@@ -1,11 +1,9 @@
 #[macro_use]
-extern crate rocket;
-use rocket_dyn_templates::{ Template};
+extern crate rocket; // rocket is a framework for building web applications with Rust.
+use rocket_dyn_templates::Template; //for parsing of templates
+mod routes; //import the route handlers from the routes module
 
-
-//import the route handlers from the routes module
-mod routes;
-
+//mount the route handlers from the routes module
 #[launch]
 fn rocket() -> _ {
     rocket::build()
