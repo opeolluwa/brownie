@@ -1,0 +1,33 @@
+.d-desktop {
+  display: none;
+  @media (min-width: 600px) {
+    display: block;
+  }
+}
+
+//desktop only
+.view {
+  padding: 0 100px;
+  margin-bottom: 4rem;
+
+  @media (max-width: 600px) {
+    padding: 0 30;
+    margin-bottom: 2.5rem;
+  }
+}
+
+.small {
+  font-size: 0.8rem;
+}
+
+.lowercase {
+  text-transform: lowercase;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.capitalize {
+  text-transform: capitalize;
+}

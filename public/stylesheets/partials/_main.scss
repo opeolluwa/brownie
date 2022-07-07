@@ -1,0 +1,24 @@
+
+main .container {
+    #hero {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      justify-content: space-between;
+      column-gap: 3rem;
+    }
+  
+    & h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      line-height: 45px;
+    }
+  
+    & h1 + p {
+      font-size: 1.2rem;
+      font-weight: 400;
+      margin-bottom: 1rem;
+      line-height: 28px;
+    }
+  }
+  
