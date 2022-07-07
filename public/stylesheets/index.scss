@@ -1,15 +1,13 @@
 //import dependents
 @import "./globals/mixin.scss";
 @import "./globals/classes.scss";
-// @import "./mixin.scss";
+@import "./globals/variables.scss";
+@import "./globals/colors.scss";
+
 html,
 body {
   @include reset;
   @include fonts;
-}
-
-header {
-  padding-top: 0;
 }
 
 @import "./partials/header.scss";
