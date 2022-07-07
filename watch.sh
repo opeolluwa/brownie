@@ -1,5 +1,5 @@
 #!/bin/bash/
 echo "Watching scss files"
-scss --watch public/index.scss:public/index.scss
+sass --watch public/stylesheets/index.scss:public/stylesheets/index.css
 echo "Watching js files"
 tsc --watch 

@@ -1,0 +1,11 @@
+//import dependents
+@import "./globals/mixin.scss";
+// @import "./mixin.scss";
+html,
+body {
+  @include reset;
+  @include fonts;
+  background-color: red;
+}
+
+

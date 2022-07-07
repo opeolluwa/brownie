@@ -1,8 +1,8 @@
 {
   "compilerOptions": {
     "target": "es2016",
-    "rootDir": "./public/js/src",
-    "outDir": "./public/js/dist",
+    "rootDir": "public/scripts/src",
+    "outDir": "public/scripts/dist",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "strict": true,
