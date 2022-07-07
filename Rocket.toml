@@ -1,2 +1,6 @@
-# [global.databases]
-# sqlite_logs = { url = "/path/to/database.sqlite" }
+[default.databases.rustly_datastore]
+url =""
+min_connections = 64
+max_connections = 1024
+connect_timeout = 5
+idle_timeout = 120
