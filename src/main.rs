@@ -2,31 +2,23 @@
 extern crate rocket; // rocket is a framework for building web applications with Rust.
 use rocket_dyn_templates::Template; //for parsing of templates
 mod routes; //import the route handlers from the routes module
+use rocket::fs::{relative, FileServer}; //for serving static files
+use rocket_db_pools::{sqlx, Database};
+use routes::*; //import all route handlers from the routes module //for database connection
 
-//static files 
-// use rocket_contrib::serve::StaticFiles;
-use rocket::fs::{FileServer, relative};
-
-//import database config
-// use rocket_contrib::databases::diesel;
-// #[database("datastore")] //connect to the database
-// struct RustlyDatastore(diesel::MysqlConnection);
+//init database config
+#[derive(Database)]
+#[database("rustly_datastore")]
+struct RustlyDatastore(sqlx::MySqlPool);
 
 #[launch]
 fn rocket() -> _ {
     rocket::build()
-        .mount(
-            "/",
-            //the views are in the templates base dir
-            routes![
-                routes::views::index,
-                routes::views::login,
-                routes::views::sign_up
-            ],
-        )
-        //the authentication endpoints
-        .mount("/auth", routes![routes::auth::login, routes::auth::sign_up])
+        //views
+        .mount("/", routes![views::index, views::login, views::sign_up])
+        .mount("/auth", routes![auth::login, auth::sign_up])//auth routes through POST requests
+        .mount("/dashboard", routes![user::dashboard])//dashboard routes through GET requests
         .mount("/static", FileServer::from(relative!("/public"))) //static files
         .attach(Template::fairing()) //template engines
-        // .attach(RustlyDatastore::fairing()) //database connection
+        .attach(RustlyDatastore::init()) //database connection
 }

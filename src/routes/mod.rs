@@ -35,7 +35,8 @@ pub mod auth {
     }
 }
 
-pub mod dashboard {
+//the user account pages
+pub mod user {
     use rocket_dyn_templates::{context, Template};
     //the login page accessible only to unauthenticated users via /auth/login
     #[get("/dashboard")]
