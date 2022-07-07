@@ -4,7 +4,8 @@ use rocket_dyn_templates::Template; //for parsing of templates
 mod routes; //import the route handlers from the routes module
 
 //static files 
-use rocket_contrib::serve::StaticFiles;
+// use rocket_contrib::serve::StaticFiles;
+use rocket::fs::{FileServer, relative};
 
 //import database config
 // use rocket_contrib::databases::diesel;
@@ -25,7 +26,7 @@ fn rocket() -> _ {
         )
         //the authentication endpoints
         .mount("/auth", routes![routes::auth::login, routes::auth::sign_up])
-        .mount("/public", StaticFiles::from("/static")) //static files
+        .mount("/static", FileServer::from(relative!("/public"))) //static files
         .attach(Template::fairing()) //template engines
         // .attach(RustlyDatastore::fairing()) //database connection
 }
