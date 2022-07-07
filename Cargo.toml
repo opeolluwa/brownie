@@ -10,12 +10,14 @@ dotenv = "0.15.0"         #to read and parse .env files
 mysql = "22.2.0"          #database driver
 dotenv_codegen = "0.15.0" # This is a dependency of dotenv to read env using a macro
 rocket = "0.5.0-rc.2"     #web framework
+rocket_contrib = "0.4.11"
 
 #template engines
 [dependencies.rocket_dyn_templates]
 version = "0.1.0-rc.2"
 features = ["tera", "handlebars"]
 
+# []
 #database connection
 # [dependencies.rocket_contrib]
 # version = "0.4.11"
