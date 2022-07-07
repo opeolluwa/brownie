@@ -25,7 +25,14 @@
   font-size: 16px;
 }
 
-//views-spacer to set the default spacing between elements
-// @mixin views-spacer {
-//   padding: 100px;
-// }
+@mixin button($bg: transparent, $font: #101010) {
+  background: transparent;
+  color: $font;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}

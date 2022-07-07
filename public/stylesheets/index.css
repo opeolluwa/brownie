@@ -34,6 +34,22 @@
   text-transform: capitalize;
 }
 
+.d-none {
+  display: none;
+}
+
+.btn {
+  background: #ffc107;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
 html,
 body {
   margin: 0;
@@ -57,24 +73,28 @@ body {
   font-size: 16px;
 }
 
-ul {
+header ul {
   list-style: none;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
 }
-ul li:first-child {
+header ul li:first-child {
   grid-column: span 8;
 }
-ul li {
+header ul li {
   line-height: 24px;
   font-size: 1.2rem;
   font-weight: 400;
   text-transform: capitalize;
 }
-ul li a {
+header ul li a {
   color: #101010;
   text-decoration: none;
   transition: all 0.3s ease-in-out;
+}
+
+.container > div {
+  margin-bottom: 125px;
 }
 
 main .container #hero {
@@ -82,18 +102,102 @@ main .container #hero {
   grid-template-columns: 1fr 1.2fr;
   justify-content: space-between;
   column-gap: 3rem;
+  min-height: 60vh;
+  align-items: center;
 }
 main .container h1 {
   font-size: 2.5rem;
   font-weight: 700;
   margin-bottom: 1rem;
   line-height: 45px;
+  font-stretch: expanded;
+}
+main .container h1 .gradient {
+  background: linear-gradient(90deg, #6437a0, #fe4b83, #ff5e64, #ff7747, #fb9633);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-decoration: underline 2px solid red;
 }
 main .container h1 + p {
   font-size: 1.2rem;
   font-weight: 400;
   margin-bottom: 1rem;
+  line-height: 35px;
+}
+
+main .container form .form-field {
+  display: grid;
+  grid-template-columns: 3.5fr 1.2fr;
+  align-items: center;
+  border-radius: 5px;
+  padding: 5px;
+  margin-top: 2rem;
+  box-shadow: 1px 5px 42px -17px rgba(23, 20, 20, 0.54);
+  -webkit-box-shadow: 1px 5px 42px -17px rgba(23, 20, 20, 0.54);
+  -moz-box-shadow: 1px 5px 42px -17px rgba(23, 20, 20, 0.54);
+}
+main .container form .form-field button,
+main .container form .form-field input {
+  border: none;
+  background-color: none;
+  font-size: 1.2rem;
+  font-weight: 400;
+  margin-bottom: 0.5rem;
   line-height: 28px;
+  border: none;
+  border-radius: 0;
+}
+main .container form .form-field button {
+  border-radius: 25px;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 300ms ease-in-out;
+  background: #6437a0;
+  text-transform: capitalize;
+}
+main .container form .form-field input {
+  padding-left: 30px;
+  border-radius: 5px 0 5px 0;
+}
+main .container form .form-field ::placeholder {
+  color: #505050;
+  font-size: 1.2rem;
+  font-weight: 400;
+  padding-left: 30px;
+  font-family: inherit;
+}
+
+main .container #about {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  justify-content: space-between;
+  column-gap: 3rem;
+}
+main .container #about ul {
+  display: block;
+  padding: 0;
+  margin: 0;
+}
+main .container #about ul li {
+  display: block;
+  margin-bottom: 2rem;
+  line-height: 36px;
+}
+
+footer {
+  background-color: #101010;
+  margin-bottom: 0;
+  padding-bottom: 0;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+footer .view {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  color: #f2f2f2;
 }
 
 /*# sourceMappingURL=index.css.map */

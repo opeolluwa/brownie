@@ -1,24 +1,102 @@
+.container > div {
+  margin-bottom: 125px;
+}
 
 main .container {
-    #hero {
-      display: grid;
-      grid-template-columns: 1fr 1.2fr;
-      justify-content: space-between;
-      column-gap: 3rem;
-    }
-  
-    & h1 {
-      font-size: 2.5rem;
-      font-weight: 700;
-      margin-bottom: 1rem;
-      line-height: 45px;
-    }
-  
-    & h1 + p {
-      font-size: 1.2rem;
-      font-weight: 400;
-      margin-bottom: 1rem;
-      line-height: 28px;
+  #hero {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    justify-content: space-between;
+    column-gap: 3rem;
+    min-height: 60vh;
+    align-items: center;
+  }
+
+  & h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    line-height: 45px;
+    font-stretch: expanded;
+    .gradient {
+      background: $gradient;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-decoration: underline 2px solid red;
     }
   }
-  
+
+  & h1 + p {
+    font-size: 1.2rem;
+    font-weight: 400;
+    margin-bottom: 1rem;
+    line-height: 35px;
+  }
+}
+
+main .container form {
+  .form-field {
+    display: grid;
+    grid-template-columns: 3.5fr 1.2fr;
+    align-items: center;
+    border-radius: 5px;
+    padding: 5px;
+    margin-top: 2rem;
+    box-shadow: 1px 5px 42px -17px rgba(23, 20, 20, 0.54);
+    -webkit-box-shadow: 1px 5px 42px -17px rgba(23, 20, 20, 0.54);
+    -moz-box-shadow: 1px 5px 42px -17px rgba(23, 20, 20, 0.54);
+  }
+  .form-field button,
+  .form-field input {
+    border: none;
+    background-color: none;
+    font-size: 1.2rem;
+    font-weight: 400;
+    margin-bottom: 0.5rem;
+    line-height: 28px;
+    border: none;
+    border-radius: 0;
+  }
+  .form-field button {
+    border-radius: 25px;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 300ms ease-in-out;
+    background: $blue;
+    text-transform: capitalize;
+  }
+
+  .form-field input {
+    padding-left: 30px;
+    border-radius: 5px 0 5px 0;
+  }
+  .form-field ::placeholder {
+    color: darken($grey, 59);
+    font-size: 1.2rem;
+    font-weight: 400;
+    padding-left: 30px;
+    font-family: inherit;
+  }
+}
+
+//about us
+main .container #about {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  justify-content: space-between;
+  column-gap: 3rem;
+
+  ul {
+    display: block;
+    padding: 0;
+    margin: 0;
+  }
+
+  ul li {
+    display: block;
+    margin-bottom: 2rem;
+    line-height: 36px;
+  }
+}

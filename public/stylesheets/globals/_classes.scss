@@ -31,3 +31,18 @@
 .capitalize {
   text-transform: capitalize;
 }
+
+.d-none {
+  display: none;
+}
+.btn {
+  background: #ffc107;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
