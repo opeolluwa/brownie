@@ -102,19 +102,19 @@ main .container #hero {
   grid-template-columns: 1fr 1.2fr;
   justify-content: space-between;
   column-gap: 3rem;
-  min-height: 60vh;
+  min-height: 75vh;
   align-items: center;
 }
 main .container h1 {
-  font-size: 2.5rem;
+  font-size: 3.5rem;
   font-weight: 700;
   margin-bottom: 1rem;
-  line-height: 45px;
+  line-height: 65px;
   font-stretch: expanded;
 }
 main .container h1 .gradient {
   background: linear-gradient(90deg, #6437a0, #fe4b83, #ff5e64, #ff7747, #fb9633);
-  -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   text-decoration: underline 2px solid red;
 }
@@ -175,6 +175,15 @@ main .container #about {
   justify-content: space-between;
   column-gap: 3rem;
 }
+main .container #about h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  line-height: 45px;
+  font-stretch: expanded;
+  text-transform: capitalize;
+  line-height: 65px;
+}
 main .container #about ul {
   display: block;
   padding: 0;
@@ -198,6 +207,44 @@ footer .view {
   margin-bottom: 0;
   padding-bottom: 0;
   color: #f2f2f2;
+  display: flex;
+  justify-content: space-between;
+}
+
+footer .view ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  padding-left: 12px;
+  text-transform: capitalize;
+}
+
+footer ul li {
+  margin-bottom: 1rem;
+  padding: 0.75px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+footer ul li a {
+  color: #f2f2f2;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+}
+
+footer span.small {
+  text-align: center;
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: #f2f2f2;
+  text-transform: lowercase;
+  display: block;
+  margin-top: 3rem;
+}
+footer span.small a {
+  color: inherit;
+  text-decoration: underline;
 }
 
 /*# sourceMappingURL=index.css.map */

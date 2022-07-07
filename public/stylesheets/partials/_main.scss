@@ -8,19 +8,19 @@ main .container {
     grid-template-columns: 1fr 1.2fr;
     justify-content: space-between;
     column-gap: 3rem;
-    min-height: 60vh;
+    min-height: 75vh;
     align-items: center;
   }
 
   & h1 {
-    font-size: 2.5rem;
+    font-size: 3.5rem;
     font-weight: 700;
     margin-bottom: 1rem;
-    line-height: 45px;
+    line-height: 65px;
     font-stretch: expanded;
     .gradient {
       background: $gradient;
-      -webkit-background-clip: text;
+      background-clip: text;
       -webkit-text-fill-color: transparent;
       text-decoration: underline 2px solid red;
     }
@@ -88,6 +88,16 @@ main .container #about {
   justify-content: space-between;
   column-gap: 3rem;
 
+  h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    line-height: 45px;
+    font-stretch: expanded;
+    text-transform: capitalize;
+    line-height: 65px;
+    
+  }
   ul {
     display: block;
     padding: 0;
