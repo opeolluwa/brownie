@@ -4,6 +4,12 @@ use rocket_dyn_templates::Template; //for parsing of templates
 mod routes; //import the route handlers from the routes module
             //import all route handlers from the routes module
             //mount the route handlers from the routes module
+
+//import database config
+// use rocket_contrib::databases::diesel;
+// #[database("datastore")] //connect to the database
+// struct RustlyDatastore(diesel::MysqlConnection);
+
 #[launch]
 fn rocket() -> _ {
     rocket::build()
@@ -15,8 +21,9 @@ fn rocket() -> _ {
                 routes::views::login,
                 routes::views::sign_up
             ],
-        ) 
+        )
         //the authentication endpoints
         .mount("/auth", routes![routes::auth::login, routes::auth::sign_up])
-        .attach(Template::fairing())
+        .attach(Template::fairing()) //template engines
+        // .attach(RustlyDatastore::fairing()) //database connection
 }
