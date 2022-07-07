@@ -16,6 +16,7 @@ fn rocket() -> _ {
                 routes::views::sign_up
             ],
         ) 
+        //the authentication endpoints
         .mount("/auth", routes![routes::auth::login, routes::auth::sign_up])
         .attach(Template::fairing())
 }
