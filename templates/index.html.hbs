@@ -60,7 +60,7 @@
               nulla veniam, saepe dolor!
             </p>
             <!--form-->
-            <form action="/minify" method="post">
+            <form action="/minify" method="post" id="try-now-form">
               <div class="form-field box-shadow">
                 <input
                   type="text"
@@ -69,11 +69,12 @@
                   placeholder="https://example.com/awesome"
                 />
                 <button type="submit" class="btn">try now 🚀</button>
+                <span class="error-message error"></span>
               </div>
             </form>
 
             <!--call to action-->
-            <div class="cta d-none">
+            <div class="cta ">
               <a href="/login">
                 <button class="btn">get started</button>
               </a>
@@ -126,5 +127,6 @@
         All rights
         reserved.
     </footer>
+    <script src="static/scripts/dist/try-now.js"></script>
   </body>
 </html>

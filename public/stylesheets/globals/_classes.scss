@@ -47,8 +47,25 @@
   transition: all 0.3s ease-in-out;
 }
 
+.error {
+  color: yellow !important;
+  font-size: 0.8rem;
+  font-weight: 700;
+  margin-top: 10.5rem;
+  display: inline-block;
+  transition: all 30ms 300ms ease-in-out;
+  margin: inherit;
+  padding: inherit;
+}
 
-.box-shadow{
+.hide {
+  display: none;
+}
+.show {
+  display: block;
+}
+
+.box-shadow {
   box-shadow: 1px 5px 42px -17px rgba(23, 20, 20, 0.54);
   -webkit-box-shadow: 1px 5px 42px -17px rgba(23, 20, 20, 0.54);
   -moz-box-shadow: 1px 5px 42px -17px rgba(23, 20, 20, 0.54);
