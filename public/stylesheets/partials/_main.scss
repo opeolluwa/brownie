@@ -79,7 +79,7 @@ main .container form {
     border-radius: 0;
   }
   .form-field button {
-    border-radius: 25px;
+    border-radius: 4px;
     box-sizing: border-box;
     margin: 0.5rem;
     padding: 0.5rem 1rem;
@@ -87,7 +87,8 @@ main .container form {
     font-weight: 700;
     cursor: pointer;
     transition: all 300ms ease-in-out;
-    background: $button-gradient;
+    // background: $button-gradient;
+    background: $blue;
     text-transform: capitalize;
   }
 
@@ -181,8 +182,6 @@ main #pricing {
       grid-template-columns: 1fr;
       grid-template-rows: 1fr;
     }
-  
-    
   }
   .price-card {
     border: 2px solid $grey;

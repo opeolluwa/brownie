@@ -21,13 +21,13 @@ header {
       transition: all 0.3s ease-in-out;
     }
     li:last-child {
-      background-color: $blue;
+      background-color: darken($grey, 10);
       display: flex;
       justify-content: center;
       align-items: center;
       border-radius: 5px;
       a {
-        color: $white;
+        color: $black;
       }
     }
   }

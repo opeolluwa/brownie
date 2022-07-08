@@ -100,14 +100,14 @@ header ul li a {
   transition: all 0.3s ease-in-out;
 }
 header ul li:last-child {
-  background-color: #6437a0;
+  background-color: #cdcdcd;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 5px;
 }
 header ul li:last-child a {
-  color: #f2f2f2;
+  color: #101010;
 }
 
 .container > div {
@@ -194,7 +194,7 @@ main .container form .form-field input {
   border-radius: 0;
 }
 main .container form .form-field button {
-  border-radius: 25px;
+  border-radius: 4px;
   box-sizing: border-box;
   margin: 0.5rem;
   padding: 0.5rem 1rem;
@@ -202,7 +202,7 @@ main .container form .form-field button {
   font-weight: 700;
   cursor: pointer;
   transition: all 300ms ease-in-out;
-  background: linear-gradient(-56deg, #6437a0 40%, #ff5e64 85%, #4d2088);
+  background: #6437a0;
   text-transform: capitalize;
 }
 main .container form .form-field input {
