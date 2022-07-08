@@ -4,12 +4,18 @@
 
 main .container {
   #hero {
-    display: grid;
-    grid-template-columns: 1fr 1.2fr;
+    width: 75%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
     justify-content: space-between;
     column-gap: 3rem;
-    min-height: 75vh;
+    min-height: 95vh;
     align-items: center;
+    @media screen and( max-width: 600px) {
+      width: 100%;
+      display: block;
+    }
   }
 
   & h1 {
@@ -18,6 +24,13 @@ main .container {
     margin-bottom: 1rem;
     line-height: 65px;
     font-stretch: expanded;
+    text-align: center;
+    @media screen and( max-width: 600px) {
+      font-size: 2.5rem;
+      line-height: 55px;
+    }
+
+  
     .gradient {
       background: $gradient;
       background-clip: text;

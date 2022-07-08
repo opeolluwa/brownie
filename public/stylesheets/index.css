@@ -13,7 +13,7 @@
 }
 @media (max-width: 600px) {
   .view {
-    padding: 0 30;
+    padding: 0 40px;
     margin-bottom: 2.5rem;
   }
 }
@@ -48,6 +48,12 @@
   font-weight: 700;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
+}
+
+.box-shadow {
+  box-shadow: 1px 5px 42px -17px rgba(23, 20, 20, 0.54);
+  -webkit-box-shadow: 1px 5px 42px -17px rgba(23, 20, 20, 0.54);
+  -moz-box-shadow: 1px 5px 42px -17px rgba(23, 20, 20, 0.54);
 }
 
 html,
@@ -109,12 +115,20 @@ header ul li:last-child a {
 }
 
 main .container #hero {
-  display: grid;
-  grid-template-columns: 1fr 1.2fr;
+  width: 75%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
   justify-content: space-between;
   column-gap: 3rem;
-  min-height: 75vh;
+  min-height: 95vh;
   align-items: center;
+}
+@media screen and (max-width: 600px) {
+  main .container #hero {
+    width: 100%;
+    display: block;
+  }
 }
 main .container h1 {
   font-size: 3.5rem;
@@ -122,6 +136,13 @@ main .container h1 {
   margin-bottom: 1rem;
   line-height: 65px;
   font-stretch: expanded;
+  text-align: center;
+}
+@media screen and (max-width: 600px) {
+  main .container h1 {
+    font-size: 2.5rem;
+    line-height: 55px;
+  }
 }
 main .container h1 .gradient {
   background: linear-gradient(90deg, #4d2088 0%, #6437a0, #aa3f61, #ff5e64, #ff7747, #fb9633);
@@ -306,6 +327,21 @@ footer .copyright a {
 }
 footer .copyright ul {
   display: flex;
+}
+
+main#login .form-field {
+  box-shadow: none;
+}
+
+main#login {
+  border-radius: 5px;
+  width: 70%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+main#login form {
+  border: 1px solid #e6e6e6;
 }
 
 /*# sourceMappingURL=index.css.map */
