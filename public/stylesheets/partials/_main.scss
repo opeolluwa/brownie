@@ -40,7 +40,7 @@ main .container form {
     grid-template-columns: 3.5fr 1.2fr;
     align-items: center;
     border-radius: 5px;
-    padding: 5px;
+    padding: 7.5px 5px;
     margin-top: 2rem;
     box-shadow: 1px 5px 42px -17px rgba(23, 20, 20, 0.54);
     -webkit-box-shadow: 1px 5px 42px -17px rgba(23, 20, 20, 0.54);
@@ -59,18 +59,28 @@ main .container form {
   }
   .form-field button {
     border-radius: 25px;
+    box-sizing: border-box;
+    margin: 0.5rem;
     padding: 0.5rem 1rem;
     font-size: 1rem;
     font-weight: 700;
     cursor: pointer;
     transition: all 300ms ease-in-out;
-    background: $blue;
+    background: $button-gradient;
     text-transform: capitalize;
   }
 
   .form-field input {
     padding-left: 30px;
     border-radius: 5px 0 5px 0;
+    color: darken($black, 30);
+  }
+  .form-field input:hover,
+  .form-field input:focus {
+    outline: none;
+  }
+  .form-field button:hover {
+    background: $blue-dark;
   }
   .form-field ::placeholder {
     color: darken($grey, 59);
@@ -96,7 +106,6 @@ main .container #about {
     font-stretch: expanded;
     text-transform: capitalize;
     line-height: 65px;
-    
   }
   ul {
     display: block;
@@ -105,8 +114,79 @@ main .container #about {
   }
 
   ul li {
+    display: grid;
+    grid-template-columns: 0.5fr 4fr;
+  }
+
+  ul li:last-child {
+    margin-bottom: 0;
+  }
+
+  li {
+    img {
+      object-fit: fill;
+      max-width: 100%;
+      width: 45px;
+    }
+  }
+}
+
+//pricing
+main #pricing {
+  & > h2 {
+    text-align: center;
+  }
+  & > div {
+    margin-top: 5rem;
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(2, 450px);
+    grid-template-rows: 500px;
+    column-gap: 5rem;
+  }
+  .price-card {
+    border: 2px solid $grey;
+    border-radius: 12px;
+    transition: 300ms ease;
+    transition-delay: 100ms;
+    transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+    padding: 0;
+    margin: 0;
+    text-align: center;
+  }
+
+  .price-card:hover {
+    background: $blue;
+    color: $white;
+    box-shadow: 1px 5px 42px -17px rgba(23, 20, 20, 0.54);
+    -webkit-box-shadow: 1px 5px 42px -17px rgba(23, 20, 20, 0.54);
+    -moz-box-shadow: 1px 5px 42px -17px rgba(23, 20, 20, 0.54);
+  }
+
+  .price-card h3 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 45px;
+    font-stretch: expanded;
+    text-transform: uppercase;
+    line-height: 65px;
+  }
+  .price-card h3::before {
+    content: "$";
+    color: $blue;
+    vertical-align: top;
+  }
+  .price h3 + p {
+    font-size: 1.2rem;
+    font-weight: 400;
+    margin-bottom: 1rem;
+    line-height: 35px;
+  }
+  .price-card .price {
+    font-size: 3.5rem;
     display: block;
-    margin-bottom: 2rem;
-    line-height: 36px;
+    text-align: center;
+    position: relative;
+    bottom: 2px;
   }
 }

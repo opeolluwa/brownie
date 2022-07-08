@@ -10,6 +10,17 @@ body {
   @include fonts;
 }
 
+//add background to top right corner of the page
+// body {
+//   background-image: url("./../img/background/blob.svg");
+//   background-size: cover;
+//   background-position:200px -800px; ;
+//   background-repeat: no-repeat;
+//   height: 100vh;
+//   width: 100vw;
+// }
+
+
 @import "./partials/header.scss";
 @import "./partials/main.scss";
 @import "./partials/footer.scss";
