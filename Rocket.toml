@@ -1,5 +1,5 @@
 [default.databases.rustly_datastore]
-url ="mysql://bmdm8zb3k7of:pscale_pw_gJZYML82YgW5Cpxn9-4xOV8dSN9uBHOvinwPj2LXZNc@8vtay4at036n.us-east-1.psdb.cloud/edwork"
+url ="mysql://thunder:storm@localhost/rustly_datastore"
 min_connections = 64
 max_connections = 1024
 connect_timeout = 5

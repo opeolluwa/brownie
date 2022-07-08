@@ -18,7 +18,7 @@ fn rocket() -> _ {
         .mount("/", routes![views::index, views::login, views::sign_up])
         .mount("/auth", routes![auth::login, auth::sign_up])//auth routes through POST requests
         .mount("/dashboard", routes![user::dashboard])//dashboard routes through GET requests
-        .mount("/static", FileServer::from(relative!("/public"))) //static files
+        .mount("/static", FileServer::from(relative!("public"))) //static files
         .attach(Template::fairing()) //template engines
-        // .attach(RustlyDatastore::init()) //database connection
+        .attach(RustlyDatastore::init()) //database connection
 }
