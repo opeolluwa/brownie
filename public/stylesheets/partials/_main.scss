@@ -210,10 +210,15 @@ main #pricing {
     text-transform: uppercase;
     line-height: 65px;
   }
-  .price-card h3::before {
-    content: "$";
-    color: $blue;
-    vertical-align: top;
+  .price-card sub,
+  .price-card sup {
+    font-size: 1.2rem;
+    font-weight: 400;
+    margin-bottom: 0.5rem;
+    line-height: 28px;
+    border: none;
+    border-radius: 0;
+    color: $dark-grey;
   }
   .price h3 + p {
     font-size: 1.2rem;
