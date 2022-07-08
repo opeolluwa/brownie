@@ -155,6 +155,14 @@ main .container h1 + p {
   font-weight: 400;
   margin-bottom: 1rem;
   line-height: 35px;
+  font-stretch: expanded;
+  text-align: center;
+}
+@media screen and (max-width: 600px) {
+  main .container h1 + p {
+    font-size: 1rem;
+    line-height: 25px;
+  }
 }
 
 main .container form .form-field {
@@ -167,6 +175,12 @@ main .container form .form-field {
   box-shadow: 1px 5px 42px -17px rgba(23, 20, 20, 0.54);
   -webkit-box-shadow: 1px 5px 42px -17px rgba(23, 20, 20, 0.54);
   -moz-box-shadow: 1px 5px 42px -17px rgba(23, 20, 20, 0.54);
+}
+@media screen and (max-width: 600px) {
+  main .container form .form-field {
+    grid-template-columns: 1fr;
+    margin-top: 1rem;
+  }
 }
 main .container form .form-field button,
 main .container form .form-field input {
@@ -217,6 +231,11 @@ main .container #about {
   justify-content: space-between;
   column-gap: 3rem;
 }
+@media screen and (max-width: 600px) {
+  main .container #about {
+    grid-template-columns: 1fr;
+  }
+}
 main .container #about h2 {
   font-size: 2.5rem;
   font-weight: 700;
@@ -226,6 +245,12 @@ main .container #about h2 {
   text-transform: capitalize;
   line-height: 65px;
 }
+@media screen and (max-width: 600px) {
+  main .container #about h2 {
+    font-size: 2rem;
+    line-height: 55px;
+  }
+}
 main .container #about ul {
   display: block;
   padding: 0;
@@ -234,6 +259,13 @@ main .container #about ul {
 main .container #about ul li {
   display: grid;
   grid-template-columns: 0.5fr 4fr;
+  grid-gap: 1rem;
+  margin-bottom: 1rem;
+}
+@media screen and (max-width: 600px) {
+  main .container #about ul li {
+    grid-template-columns: 1fr;
+  }
 }
 main .container #about ul li:last-child {
   margin-bottom: 0;
@@ -254,6 +286,12 @@ main #pricing > div {
   grid-template-columns: repeat(2, 450px);
   grid-template-rows: 500px;
   column-gap: 5rem;
+}
+@media screen and (max-width: 600px) {
+  main #pricing > div {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+  }
 }
 main #pricing .price-card {
   border: 2px solid #e6e6e6;
