@@ -227,8 +227,6 @@ main .container form .form-field {
   padding: 7.5px 5px;
   margin-top: 2rem;
   box-shadow: 1px 5px 42px -17px rgba(23, 20, 20, 0.54);
-  -webkit-box-shadow: 1px 5px 42px -17px rgba(23, 20, 20, 0.54);
-  -moz-box-shadow: 1px 5px 42px -17px rgba(23, 20, 20, 0.54);
 }
 @media screen and (max-width: 600px) {
   main .container form .form-field {

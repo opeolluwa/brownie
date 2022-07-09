@@ -1,22 +1,44 @@
-/*    use rocket_db_pools::sqlx::Row;
-   use rocket_db_pools::Connection;
+use crate::RustlyDatastore;
+// use mysql::serde::Serialize;
+// use nanoid::nanoid;
+use rocket::serde::json::Json;
+// use rocket_db_pools::sqlx;
+use rocket::serde::{Deserialize, Serialize};
+use rocket_db_pools::Connection;
 
-   #[derive(Responder, Debug)]
-   struct ApiResponse {
-       status: String,
-       message: String,
-   }
-   #[derive(FormData)]
-   struct RauUrl(String);
-*/
-
-// #[post("/v1/links/minify", format = "application/json", data = "<raw_url>")]
-#[post("/v1/links/minify")]
-pub fn minify() -> &'static str {
-    let raw_url = "https://www.rust-lang.org/en-US/";
-    /*  ApiResponse {
-        status: "success".to_string(),
-        message: "minified url".to_string(),
-    } */
-    raw_url
+#[derive(Responder, Debug, Serialize)]
+struct ApiResponse {
+    status: String,
+    // message: String,
 }
+
+#[post("/v1/links/minify", format = "application/json", data = "<raw_url>")]
+pub fn minify(/* mut database: Connection<RustlyDatastore>,  */ raw_url: String,) -> Json<String> {
+    println!("{}", raw_url);
+    /* let raw_url = raw_url.parse::<String>().unwrap();
+    let url_id = nanoid!(6);
+    let last_modified = String::from("2020-01-01");
+    let total_views = 0;
+
+    //save the data
+    let query = sqlx::query!(
+        "INSERT INTO links (url_id, original_url, last_modified, total_views) VALUES (?, ?, ?, ?)",
+        url_id,
+        raw_url.0,
+        last_modified,
+        total_views
+    ); */
+    /* let response = ApiResponse {
+        status: "success".to_string(),
+        // message: "minified url".to_string(),
+        // payload: { minified_url:  "http://localhost:8000".to_string() },
+    }; */
+    // Json(response)
+    Json(raw_url)
+}
+
+//to retrieve the minified url from the database then redirect them to the original url
+// #[get("/<url_id>")]
+// pub fn get_minified_url(url_id: String) -> &'static str {
+//     "https://www.rust-lang.org/en-US/"
+// }

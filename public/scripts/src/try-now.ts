@@ -17,7 +17,7 @@ tryNowForm?.addEventListener("submit", async function (event) {
     // disable the button, hide the error message and send the content to the server
     // document?.querySelector("#try-now-form button").classList.add("disabled") = true;
     const data = {
-        url: inputValue
+        raw_url: inputValue
     };
     const options = {
         method: "POST",
@@ -26,21 +26,19 @@ tryNowForm?.addEventListener("submit", async function (event) {
         },
         body: JSON.stringify(data)
     };
-    console.log(options);
-
-    // const serverResponse: any = await fetch("/api/minify", options);
-    // const responseData: any = await serverResponse.json();
-    /* if (responseData.error) {
-        appendStyle(inputFeed, responseData.error);
-        return;
-    } */
-    //log the response
-    // console.log(responseData.minified_url);
-    // alert(inputValue);
+    // console.log(options);
+    const serverResponse: any = await fetch("/api/v1/links/minify", options);
+    // const responseData: any = await serverResponse;
+    //det the button to active 
+    tryNowButton.disabled = false;
+    tryNowButton.innerHTML = "Try Now 🚀";
+    //clear the input field
+    inputFeed.value = "";
+    // console.log(serverResponse.status);
+    // console.log(Object.keys(responseData.data));
+    console.log(serverResponse.body);
+    
 });
-
-
-
 
 //hide the error message on innput focus{
 inputFeed?.addEventListener("input", function () {
