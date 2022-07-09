@@ -1,7 +1,7 @@
 //reference the elements in the DOM
 const tryNowForm = document.querySelector("#try-now-form");
 const inputFeed: any = document.querySelector("#try-now-form input");
-const tryNowButton = document.querySelector("#try-now-form button");
+const tryNowButton: any = document.querySelector("#try-now-form button");
 
 
 //add event listener to the button
@@ -12,7 +12,10 @@ tryNowForm?.addEventListener("submit", async function (event) {
     if (!validInput) {
         appendStyle("d-inline-block")
     }
+    tryNowButton.disabled = true;//disable the button
+    tryNowButton.innerHTML = "Loading...";//change the button text
     // disable the button, hide the error message and send the content to the server
+    // document?.querySelector("#try-now-form button").classList.add("disabled") = true;
     const data = {
         url: inputValue
     };
@@ -24,7 +27,7 @@ tryNowForm?.addEventListener("submit", async function (event) {
         body: JSON.stringify(data)
     };
     console.log(options);
-    
+
     // const serverResponse: any = await fetch("/api/minify", options);
     // const responseData: any = await serverResponse.json();
     /* if (responseData.error) {

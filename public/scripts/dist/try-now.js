@@ -21,7 +21,10 @@ tryNowForm === null || tryNowForm === void 0 ? void 0 : tryNowForm.addEventListe
         if (!validInput) {
             appendStyle("d-inline-block");
         }
+        tryNowButton.disabled = true; //disable the button
+        tryNowButton.innerHTML = "Loading..."; //change the button text
         // disable the button, hide the error message and send the content to the server
+        // document?.querySelector("#try-now-form button").classList.add("disabled") = true;
         const data = {
             url: inputValue
         };
