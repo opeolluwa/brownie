@@ -48,6 +48,7 @@
   font-weight: 700;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
+  position: relative;
 }
 
 .btn.disabled {
@@ -88,17 +89,18 @@
 }
 
 .loader {
-  border: 16px solid #f3f3f3;
-  /* Light grey */
-  border-top: 16px solid #3498db;
-  /* Blue */
+  border: 5px solid #f3f3f3;
   border-radius: 50%;
-  width: 20px;
-  height: 20px;
-  animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  border-top: 5px solid transparent;
+  width: 25px;
+  height: 25px;
+  -webkit-animation: 1.2s cubic-bezier(0.075, 0.82, 0.165, 1) infinite;
+  /* Safari */
+  animation: spin 2s linear infinite;
+  display: inline-block;
 }
 
-@keyframes lds-ring {
+@keyframes spin {
   0% {
     transform: rotate(0deg);
   }

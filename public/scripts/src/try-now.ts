@@ -12,7 +12,7 @@ tryNowForm?.addEventListener("submit", async function (event) {
     if (!validInput) {
         appendStyle("d-inline-block")
     }
-    //hide the error message and send the content to the server
+    // disable the button, hide the error message and send the content to the server
     const data = {
         url: inputValue
     };
