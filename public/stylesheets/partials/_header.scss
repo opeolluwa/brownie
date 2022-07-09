@@ -1,10 +1,9 @@
-header{
-  
+header {
   ul {
     list-style: none;
     display: grid;
     grid-template-columns: repeat(12, 1fr);
-  
+
     li:first-child {
       grid-column: span 8;
     }
@@ -12,14 +11,24 @@ header{
       line-height: 24px;
       font-size: 1.2rem;
       font-weight: 400;
+      padding: 10.5px 5px;
+
       text-transform: capitalize;
     }
-  
     li a {
       color: $black;
       text-decoration: none;
       transition: all 0.3s ease-in-out;
     }
+    li:last-child {
+      background-color: darken($grey, 10);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 5px;
+      a {
+        color: $black;
+      }
+    }
   }
-  
 }

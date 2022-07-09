@@ -1,8 +1,9 @@
 $black: #101010;
 $gradient: linear-gradient(
   90deg,
+  #4d2088 0%,
   #6437a0,
-  #fe4b83,
+  #aa3f61,
   #ff5e64,
   #ff7747,
   #fb9633,
@@ -11,6 +12,10 @@ $gradient: linear-gradient(
   #c7d63c */
 );
 $blue: #6437a0;
-$button-gradient: linear-gradient(to right, #8e44ad, #c0392b);
+$blue-dark: #4d2088;
+$button-gradient: linear-gradient(-56deg, #6437a0 40%, #ff5e64 85%, #4d2088);
 $grey: #e6e6e6;
+$dark-grey: #7d7d7d;
 $white: #f2f2f2;
+$yellow: #ff7747;
+$red: #fd4147;

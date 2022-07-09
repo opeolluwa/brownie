@@ -44,3 +44,40 @@ pub mod user {
         Template::render("dashboard/index", context! { /* name:"drizzle"  */})
     }
 }
+
+// pub mod api {
+//     use rocket_db_pools::sqlx::Row;
+//     use rocket_db_pools::Connection;
+
+//     #[derive(Responder, Debug)]
+//     struct ApiResponse {
+//         status: String,
+//         message: String,
+//     }
+//     #[derive(FormData)]
+//     struct RauUrl(String);
+
+//     // #[post("/v1/links/minify", format = "application/json", data = "<raw_url>")]
+//     #[post("/v1/links/minify")]
+//     pub fn minify(raw_url: String) -> String {
+//         /*  ApiResponse {
+//             status: "success".to_string(),
+//             message: "minified url".to_string(),
+//         } */
+//         raw_url
+//     }
+// }
+
+pub mod error_catcher {
+    use rocket_dyn_templates::{context, Template};
+    //the login page accessible only to unauthenticated users via /auth/login
+    #[catch(404)]
+    pub fn not_found() -> Template {
+        Template::render("errors/404", context! { /* name:"drizzle"  */})
+    }
+
+    #[catch(404)]
+    pub fn internal_error() -> Template {
+        Template::render("errors/500", context! { /* name:"drizzle"  */})
+    }
+}

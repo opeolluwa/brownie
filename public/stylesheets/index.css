@@ -13,7 +13,7 @@
 }
 @media (max-width: 600px) {
   .view {
-    padding: 0 30;
+    padding: 0 40px;
     margin-bottom: 2.5rem;
   }
 }
@@ -48,6 +48,12 @@
   font-weight: 700;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
+}
+
+.box-shadow {
+  box-shadow: 1px 5px 42px -17px rgba(23, 20, 20, 0.54);
+  -webkit-box-shadow: 1px 5px 42px -17px rgba(23, 20, 20, 0.54);
+  -moz-box-shadow: 1px 5px 42px -17px rgba(23, 20, 20, 0.54);
 }
 
 html,
@@ -85,6 +91,7 @@ header ul li {
   line-height: 24px;
   font-size: 1.2rem;
   font-weight: 400;
+  padding: 10.5px 5px;
   text-transform: capitalize;
 }
 header ul li a {
@@ -92,18 +99,36 @@ header ul li a {
   text-decoration: none;
   transition: all 0.3s ease-in-out;
 }
+header ul li:last-child {
+  background-color: #cdcdcd;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+}
+header ul li:last-child a {
+  color: #101010;
+}
 
 .container > div {
   margin-bottom: 125px;
 }
 
 main .container #hero {
-  display: grid;
-  grid-template-columns: 1fr 1.2fr;
+  width: 65%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
   justify-content: space-between;
-  column-gap: 3rem;
-  min-height: 75vh;
+  min-height: calc(100vh - 30px);
+  margin-top: 10vh;
   align-items: center;
+}
+@media screen and (max-width: 600px) {
+  main .container #hero {
+    width: 100%;
+    display: block;
+  }
 }
 main .container h1 {
   font-size: 3.5rem;
@@ -111,9 +136,16 @@ main .container h1 {
   margin-bottom: 1rem;
   line-height: 65px;
   font-stretch: expanded;
+  text-align: center;
+}
+@media screen and (max-width: 600px) {
+  main .container h1 {
+    font-size: 2.5rem;
+    line-height: 55px;
+  }
 }
 main .container h1 .gradient {
-  background: linear-gradient(90deg, #6437a0, #fe4b83, #ff5e64, #ff7747, #fb9633);
+  background: linear-gradient(90deg, #4d2088 0%, #6437a0, #aa3f61, #ff5e64, #ff7747, #fb9633);
   background-clip: text;
   -webkit-text-fill-color: transparent;
   text-decoration: underline 2px solid red;
@@ -123,6 +155,16 @@ main .container h1 + p {
   font-weight: 400;
   margin-bottom: 1rem;
   line-height: 35px;
+  font-stretch: expanded;
+  color: #7d7d7d;
+  line-height: 36px;
+  text-align: center;
+}
+@media screen and (max-width: 600px) {
+  main .container h1 + p {
+    font-size: 1rem;
+    line-height: 25px;
+  }
 }
 
 main .container form .form-field {
@@ -130,11 +172,17 @@ main .container form .form-field {
   grid-template-columns: 3.5fr 1.2fr;
   align-items: center;
   border-radius: 5px;
-  padding: 5px;
+  padding: 7.5px 5px;
   margin-top: 2rem;
   box-shadow: 1px 5px 42px -17px rgba(23, 20, 20, 0.54);
   -webkit-box-shadow: 1px 5px 42px -17px rgba(23, 20, 20, 0.54);
   -moz-box-shadow: 1px 5px 42px -17px rgba(23, 20, 20, 0.54);
+}
+@media screen and (max-width: 600px) {
+  main .container form .form-field {
+    grid-template-columns: 1fr;
+    margin-top: 1rem;
+  }
 }
 main .container form .form-field button,
 main .container form .form-field input {
@@ -148,8 +196,10 @@ main .container form .form-field input {
   border-radius: 0;
 }
 main .container form .form-field button {
-  border-radius: 25px;
-  padding: 0.5rem 1rem;
+  border-radius: 24px;
+  box-sizing: border-box;
+  margin: 0.5rem;
+  padding: 0.5rem 0.25rem;
   font-size: 1rem;
   font-weight: 700;
   cursor: pointer;
@@ -160,6 +210,14 @@ main .container form .form-field button {
 main .container form .form-field input {
   padding-left: 30px;
   border-radius: 5px 0 5px 0;
+  color: black;
+}
+main .container form .form-field input:hover,
+main .container form .form-field input:focus {
+  outline: none;
+}
+main .container form .form-field button:hover {
+  background: #4d2088;
 }
 main .container form .form-field ::placeholder {
   color: #505050;
@@ -175,6 +233,11 @@ main .container #about {
   justify-content: space-between;
   column-gap: 3rem;
 }
+@media screen and (max-width: 600px) {
+  main .container #about {
+    grid-template-columns: 1fr;
+  }
+}
 main .container #about h2 {
   font-size: 2.5rem;
   font-weight: 700;
@@ -184,67 +247,146 @@ main .container #about h2 {
   text-transform: capitalize;
   line-height: 65px;
 }
+@media screen and (max-width: 600px) {
+  main .container #about h2 {
+    font-size: 2rem;
+    line-height: 55px;
+  }
+}
 main .container #about ul {
   display: block;
   padding: 0;
   margin: 0;
 }
 main .container #about ul li {
+  display: grid;
+  grid-template-columns: 0.5fr 4fr;
+  grid-gap: 1rem;
+  margin-bottom: 1rem;
+}
+@media screen and (max-width: 600px) {
+  main .container #about ul li {
+    grid-template-columns: 1fr;
+  }
+}
+main .container #about ul li:last-child {
+  margin-bottom: 0;
+}
+main .container #about li img {
+  object-fit: fill;
+  max-width: 100%;
+  width: 45px;
+}
+
+main #pricing > h2 {
+  text-align: center;
+}
+main #pricing > div {
+  margin-top: 5rem;
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(2, 450px);
+  grid-template-rows: 500px;
+  column-gap: 5rem;
+}
+@media screen and (max-width: 600px) {
+  main #pricing > div {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+  }
+}
+main #pricing .price-card {
+  border: 2px solid #e6e6e6;
+  border-radius: 12px;
+  transition: 300ms ease;
+  transition-delay: 100ms;
+  transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
+main #pricing .price-card:hover {
+  background: #6437a0;
+  color: #f2f2f2;
+  box-shadow: 1px 5px 42px -17px rgba(23, 20, 20, 0.54);
+  -webkit-box-shadow: 1px 5px 42px -17px rgba(23, 20, 20, 0.54);
+  -moz-box-shadow: 1px 5px 42px -17px rgba(23, 20, 20, 0.54);
+}
+main #pricing .price-card h3 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 45px;
+  font-stretch: expanded;
+  text-transform: uppercase;
+  line-height: 65px;
+}
+main #pricing .price-card sub,
+main #pricing .price-card sup {
+  font-size: 1.2rem;
+  font-weight: 400;
+  margin-bottom: 0.5rem;
+  line-height: 28px;
+  border: none;
+  border-radius: 0;
+  color: #7d7d7d;
+}
+main #pricing .price h3 + p {
+  font-size: 1.2rem;
+  font-weight: 400;
+  margin-bottom: 1rem;
+  line-height: 35px;
+}
+main #pricing .price-card .price {
+  font-size: 3.5rem;
   display: block;
-  margin-bottom: 2rem;
-  line-height: 36px;
+  text-align: center;
+  position: relative;
+  bottom: 2px;
 }
 
 footer {
   background-color: #101010;
   margin-bottom: 0;
-  padding-bottom: 0;
-  padding-top: 50px;
-  padding-bottom: 50px;
-}
-
-footer .view {
-  margin-bottom: 0;
-  padding-bottom: 0;
+  padding: 20px 0;
   color: #f2f2f2;
-  display: flex;
-  justify-content: space-between;
 }
-
-footer .view ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  padding-left: 12px;
-  text-transform: capitalize;
-}
-
-footer ul li {
-  margin-bottom: 1rem;
-  padding: 0.75px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-footer ul li a {
+footer a {
   color: #f2f2f2;
   text-decoration: none;
-  transition: all 0.3s ease-in-out;
 }
 
-footer span.small {
+footer .copyright {
   text-align: center;
-  font-size: 0.8rem;
   font-weight: 400;
   color: #f2f2f2;
-  text-transform: lowercase;
-  display: block;
-  margin-top: 3rem;
+  text-transform: capitalize;
 }
-footer span.small a {
+footer .copyright a {
   color: inherit;
   text-decoration: underline;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 0.5rem;
+  text-transform: capitalize;
+}
+footer .copyright ul {
+  display: flex;
+}
+
+main#login .form-field {
+  box-shadow: none;
+}
+
+main#login {
+  border-radius: 5px;
+  width: 70%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+main#login form {
+  border: 1px solid #e6e6e6;
 }
 
 /*# sourceMappingURL=index.css.map */
