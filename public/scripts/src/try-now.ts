@@ -35,6 +35,7 @@ tryNowButton?.addEventListener("click", async function (event) {
     alert(inputValue);
 });
 
+//some update
 //hide the error message on innput focus{
 inputFeed?.addEventListener("input", function () {
     hideError("#try-now-form .error-message");

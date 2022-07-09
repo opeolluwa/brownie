@@ -44,6 +44,7 @@ tryNowButton === null || tryNowButton === void 0 ? void 0 : tryNowButton.addEven
         alert(inputValue);
     });
 });
+//some update
 //hide the error message on innput focus{
 inputFeed === null || inputFeed === void 0 ? void 0 : inputFeed.addEventListener("input", function () {
     hideError("#try-now-form .error-message");

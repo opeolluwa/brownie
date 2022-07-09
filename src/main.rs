@@ -17,12 +17,10 @@ fn rocket() -> _ {
         //views
         .mount("/", routes![views::index, views::login, views::sign_up])
         .mount("/auth", routes![auth::login, auth::sign_up]) //auth routes through POST requests
-        .mount("/dashboard", routes![user::dashboard]) //dashboard routes through GET requests
+        .mount("/dashboard", routes![users::dashboard]) //dashboard routes through GET requests
+        .mount("/api", routes![api::minify])
         .mount("/static", FileServer::from(relative!("public"))) //static files
         .attach(Template::fairing()) //template engines
         .attach(RustlyDatastore::init()) //database connection
-        .register(
-            "/*",
-            catchers![error_catcher::not_found, error_catcher::internal_error],
-        ) //register the application
+        .register("/*", catchers![errors::not_found, errors::internal_error]) //register the application
 }

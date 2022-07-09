@@ -1,2 +1,2 @@
-#!/bin/bash/
-bash watch-sass.sh && bash watch-ts.sh
+#!bin/bash
+bash util.sh "tsc --watch" "sass --watch public/stylesheets/index.scss:public/stylesheets/index.css"
