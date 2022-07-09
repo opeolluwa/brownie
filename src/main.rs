@@ -9,7 +9,7 @@ use routes::*; //import all route handlers from the routes module //for database
 //init database config
 #[derive(Database)]
 #[database("rustly_datastore")]
-struct RustlyDatastore(sqlx::MySqlPool);
+pub struct RustlyDatastore(sqlx::MySqlPool);
 
 #[launch]
 fn rocket() -> _ {
