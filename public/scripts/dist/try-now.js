@@ -13,41 +13,29 @@ const tryNowForm = document.querySelector("#try-now-form");
 const inputFeed = document.querySelector("#try-now-form input");
 const tryNowButton = document.querySelector("#try-now-form button");
 //add event listener to the button
-tryNowButton === null || tryNowButton === void 0 ? void 0 : tryNowButton.addEventListener("click", function (event) {
+tryNowForm === null || tryNowForm === void 0 ? void 0 : tryNowForm.addEventListener("submit", function (event) {
+    var _a;
     return __awaiter(this, void 0, void 0, function* () {
         event.preventDefault();
-        const inputValue = inputFeed === null || inputFeed === void 0 ? void 0 : inputFeed.value; //get the value of the input
-        if (!inputValue || !inputValue.trim().startsWith("http") || !inputValue.trim().startsWith("https://")) {
-            showError(inputFeed, "Please enter a valid url starting with http:// or https://");
-            return;
+        // const inputValue = inputFeed?.value; //get the value of the input
+        const validInput = validateInput(inputFeed === null || inputFeed === void 0 ? void 0 : inputFeed.value);
+        // alert(validInput)
+        if (!validInput) {
+            (_a = document === null || document === void 0 ? void 0 : document.querySelector("#try-now-form span.error-message")) === null || _a === void 0 ? void 0 : _a.classList.add("show-error");
         }
-        //hide the error message and send the content to the server
-        hideError("#try-now-form .error-message");
-        const data = {
-            url: inputValue
-        };
-        const options = {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(data)
-        };
-        const serverResponse = yield fetch("/api/minify", options);
-        const responseData = yield serverResponse.json();
-        if (responseData.error) {
-            showError(inputFeed, responseData.error);
-            return;
-        }
-        //log the response
-        console.log(responseData.minified_url);
-        alert(inputValue);
     });
 });
-//some update
+//if no input or invalid input
+function validateInput(inputValue) {
+    if (!inputValue.trim().startsWith("http") || !inputValue.trim().startsWith("https://")) {
+        return false;
+    }
+    return true;
+}
 //hide the error message on innput focus{
 inputFeed === null || inputFeed === void 0 ? void 0 : inputFeed.addEventListener("input", function () {
-    hideError("#try-now-form .error-message");
+    var _a;
+    (_a = document === null || document === void 0 ? void 0 : document.querySelector("#try-now-form span.error-message")) === null || _a === void 0 ? void 0 : _a.classList.remove("show-error");
 });
 function hideError(domSelector) {
     const error = document.querySelector(domSelector);
