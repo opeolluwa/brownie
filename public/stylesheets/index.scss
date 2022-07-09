@@ -1,25 +1,15 @@
 //import dependents
-@import "./globals/mixin.scss";
-@import "./globals/classes.scss";
 @import "./globals/variables.scss";
 @import "./globals/colors.scss";
+@import "./globals/mixin.scss";
+@import "./globals/classes.scss";
+@import "./components/loaders";
 
 html,
 body {
   @include reset;
   @include fonts;
 }
-
-//add background to top right corner of the page
-// body {
-//   background-image: url("./../img/background/blob.svg");
-//   background-size: cover;
-//   background-position:200px -800px; ;
-//   background-repeat: no-repeat;
-//   height: 100vh;
-//   width: 100vw;
-// }
-
 
 @import "./partials/header.scss";
 @import "./partials/main.scss";

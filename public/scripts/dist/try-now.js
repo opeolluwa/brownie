@@ -13,16 +13,15 @@ const tryNowForm = document.querySelector("#try-now-form");
 const inputFeed = document.querySelector("#try-now-form input");
 const tryNowButton = document.querySelector("#try-now-form button");
 //add event listener to the button
-tryNowButton === null || tryNowButton === void 0 ? void 0 : tryNowButton.addEventListener("click", function (event) {
+tryNowForm === null || tryNowForm === void 0 ? void 0 : tryNowForm.addEventListener("submit", function (event) {
     return __awaiter(this, void 0, void 0, function* () {
-        event.preventDefault();
+        event.preventDefault(); //prevent auto submission
         const inputValue = inputFeed === null || inputFeed === void 0 ? void 0 : inputFeed.value; //get the value of the input
-        if (!inputValue || !inputValue.trim().startsWith("http") || !inputValue.trim().startsWith("https://")) {
-            showError(inputFeed, "Please enter a valid url starting with http:// or https://");
-            return;
+        const validInput = validateInput(inputFeed === null || inputFeed === void 0 ? void 0 : inputFeed.value);
+        if (!validInput) {
+            appendStyle("d-inline-block");
         }
-        //hide the error message and send the content to the server
-        hideError("#try-now-form .error-message");
+        // disable the button, hide the error message and send the content to the server
         const data = {
             url: inputValue
         };
@@ -33,29 +32,35 @@ tryNowButton === null || tryNowButton === void 0 ? void 0 : tryNowButton.addEven
             },
             body: JSON.stringify(data)
         };
-        const serverResponse = yield fetch("/api/minify", options);
-        const responseData = yield serverResponse.json();
-        if (responseData.error) {
-            showError(inputFeed, responseData.error);
+        console.log(options);
+        // const serverResponse: any = await fetch("/api/minify", options);
+        // const responseData: any = await serverResponse.json();
+        /* if (responseData.error) {
+            appendStyle(inputFeed, responseData.error);
             return;
-        }
+        } */
         //log the response
-        console.log(responseData.minified_url);
-        alert(inputValue);
+        // console.log(responseData.minified_url);
+        // alert(inputValue);
     });
 });
 //hide the error message on innput focus{
 inputFeed === null || inputFeed === void 0 ? void 0 : inputFeed.addEventListener("input", function () {
-    hideError("#try-now-form .error-message");
+    // document?.querySelector("#try-now-form span.error-message")?.classList.remove("show-error")
+    removeStyle("d-inline-block");
 });
-function hideError(domSelector) {
-    const error = document.querySelector(domSelector);
-    error.style.display = "none";
+//if no input or invalid input
+function validateInput(inputValue) {
+    if (!inputValue.trim().startsWith("http") || !inputValue.trim().startsWith("https://")) {
+        return false;
+    }
+    return true;
 }
-//define a function to show error on the input
-function showError(input, message) {
-    const formControl = input.parentElement;
-    const errorMessage = formControl.querySelector("span.error-message");
-    errorMessage.innerText = message;
-    errorMessage.classList.add("show");
+function removeStyle(className, domSelector = "#try-now-form span.error-message") {
+    var _a;
+    (_a = document === null || document === void 0 ? void 0 : document.querySelector(domSelector)) === null || _a === void 0 ? void 0 : _a.classList.remove(className);
+}
+function appendStyle(className, domSelector = "#try-now-form span.error-message") {
+    var _a;
+    (_a = document === null || document === void 0 ? void 0 : document.querySelector(domSelector)) === null || _a === void 0 ? void 0 : _a.classList.add(className);
 }
