@@ -6,34 +6,43 @@ const tryNowButton = document.querySelector("#try-now-form button");
 
 //add event listener to the button
 tryNowForm?.addEventListener("submit", async function (event) {
-    event.preventDefault();
-    // const inputValue = inputFeed?.value; //get the value of the input
+    event.preventDefault();//prevent auto submission
+    const inputValue = inputFeed?.value; //get the value of the input
     const validInput: boolean = validateInput(inputFeed?.value)
-    // alert(validInput)
     if (!validInput) {
-        document?.querySelector("#try-now-form span.error-message")?.classList.add("show-error")
+        appendStyle("d-inline-block")
     }
     //hide the error message and send the content to the server
-    // hideError("#try-now-form .error-message");
-    /*  const data = {
-         url: inputValue
-     };
-     const options = {
-         method: "POST",
-         headers: {
-             "Content-Type": "application/json"
-         },
-         body: JSON.stringify(data)
-     };
-     const serverResponse: any = await fetch("/api/minify", options);
-     const responseData: any = await serverResponse.json();
-     if (responseData.error) {
-         showError(inputFeed, responseData.error);
-         return;
-     } */
+    const data = {
+        url: inputValue
+    };
+    const options = {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(data)
+    };
+    console.log(options);
+    
+    // const serverResponse: any = await fetch("/api/minify", options);
+    // const responseData: any = await serverResponse.json();
+    /* if (responseData.error) {
+        appendStyle(inputFeed, responseData.error);
+        return;
+    } */
     //log the response
     // console.log(responseData.minified_url);
     // alert(inputValue);
+});
+
+
+
+
+//hide the error message on innput focus{
+inputFeed?.addEventListener("input", function () {
+    // document?.querySelector("#try-now-form span.error-message")?.classList.remove("show-error")
+    removeStyle("d-inline-block")
 });
 
 
@@ -44,23 +53,9 @@ function validateInput(inputValue: string): boolean {
     }
     return true
 }
-
-//hide the error message on innput focus{
-inputFeed?.addEventListener("input", function () {
-    document?.querySelector("#try-now-form span.error-message")?.classList.remove("show-error")
-});
-
-
-
-function hideError(domSelector: string) {
-    const error: any = document.querySelector(domSelector);
-    error.style.display = "none";
+function removeStyle(className: string, domSelector: string = "#try-now-form span.error-message",) {
+    document?.querySelector(domSelector)?.classList.remove(className)
 }
-
-//define a function to show error on the input
-function showError(input: any, message: string) {
-    const formControl = input.parentElement;
-    const errorMessage = formControl.querySelector("span.error-message");
-    errorMessage.innerText = message;
-    errorMessage.classList.add("show");
+function appendStyle(className: string, domSelector: string = "#try-now-form span.error-message",) {
+    document?.querySelector(domSelector)?.classList.add(className)
 }

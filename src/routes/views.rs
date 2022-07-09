@@ -1,9 +1,8 @@
-    //definition of all route handlers
     use rocket_dyn_templates::{context, Template};
     //the home page
     #[get("/")]
     pub fn index() -> Template {
-        Template::render("index", context! { /* name:"drizzle" */ })
+        Template::render("index", context! { title:"Rustly - minimal URL shortener"  })
     }
 
     //the login page accessible only to unauthenticated users via /auth/login

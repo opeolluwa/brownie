@@ -14,16 +14,40 @@ const inputFeed = document.querySelector("#try-now-form input");
 const tryNowButton = document.querySelector("#try-now-form button");
 //add event listener to the button
 tryNowForm === null || tryNowForm === void 0 ? void 0 : tryNowForm.addEventListener("submit", function (event) {
-    var _a;
     return __awaiter(this, void 0, void 0, function* () {
-        event.preventDefault();
-        // const inputValue = inputFeed?.value; //get the value of the input
+        event.preventDefault(); //prevent auto submission
+        const inputValue = inputFeed === null || inputFeed === void 0 ? void 0 : inputFeed.value; //get the value of the input
         const validInput = validateInput(inputFeed === null || inputFeed === void 0 ? void 0 : inputFeed.value);
-        // alert(validInput)
         if (!validInput) {
-            (_a = document === null || document === void 0 ? void 0 : document.querySelector("#try-now-form span.error-message")) === null || _a === void 0 ? void 0 : _a.classList.add("show-error");
+            appendStyle("d-inline-block");
         }
+        //hide the error message and send the content to the server
+        const data = {
+            url: inputValue
+        };
+        const options = {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(data)
+        };
+        console.log(options);
+        // const serverResponse: any = await fetch("/api/minify", options);
+        // const responseData: any = await serverResponse.json();
+        /* if (responseData.error) {
+            appendStyle(inputFeed, responseData.error);
+            return;
+        } */
+        //log the response
+        // console.log(responseData.minified_url);
+        // alert(inputValue);
     });
+});
+//hide the error message on innput focus{
+inputFeed === null || inputFeed === void 0 ? void 0 : inputFeed.addEventListener("input", function () {
+    // document?.querySelector("#try-now-form span.error-message")?.classList.remove("show-error")
+    removeStyle("d-inline-block");
 });
 //if no input or invalid input
 function validateInput(inputValue) {
@@ -32,19 +56,11 @@ function validateInput(inputValue) {
     }
     return true;
 }
-//hide the error message on innput focus{
-inputFeed === null || inputFeed === void 0 ? void 0 : inputFeed.addEventListener("input", function () {
+function removeStyle(className, domSelector = "#try-now-form span.error-message") {
     var _a;
-    (_a = document === null || document === void 0 ? void 0 : document.querySelector("#try-now-form span.error-message")) === null || _a === void 0 ? void 0 : _a.classList.remove("show-error");
-});
-function hideError(domSelector) {
-    const error = document.querySelector(domSelector);
-    error.style.display = "none";
+    (_a = document === null || document === void 0 ? void 0 : document.querySelector(domSelector)) === null || _a === void 0 ? void 0 : _a.classList.remove(className);
 }
-//define a function to show error on the input
-function showError(input, message) {
-    const formControl = input.parentElement;
-    const errorMessage = formControl.querySelector("span.error-message");
-    errorMessage.innerText = message;
-    errorMessage.classList.add("show");
+function appendStyle(className, domSelector = "#try-now-form span.error-message") {
+    var _a;
+    (_a = document === null || document === void 0 ? void 0 : document.querySelector(domSelector)) === null || _a === void 0 ? void 0 : _a.classList.add(className);
 }
