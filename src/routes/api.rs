@@ -18,16 +18,14 @@ pub async fn minify(mut database: Connection<RustlyDatastore>, raw_url: String) 
     println!("{}", raw_url);
     let original_url = raw_url.parse::<String>().unwrap();
     let url_id = nanoid!(6);
-    let last_modified = String::from("2020-01-01");
     let total_views = 0;
 
     //save the data
     let query = sqlx::query(
-        "INSERT INTO links (url_id, original_url, last_modified, total_views) VALUES (?, ?, ?, ?)",
+        "INSERT INTO links (url_id, original_url, last_modified, total_views) VALUES (?, ?, ?)",
     )
     .bind(url_id.clone())
     .bind(original_url)
-    .bind(last_modified)
     .bind(total_views);
     // .execute(&mut database);
     let res = database.execute(query).await;
