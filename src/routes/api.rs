@@ -1,7 +1,7 @@
 use crate::RustlyDatastore;
 use nanoid::nanoid;
-// use rocket::response;
 use rocket::serde::json::Json;
+use rocket::serde::Deserialize;
 use rocket::serde::Serialize;
 use rocket_db_pools::sqlx;
 use rocket_db_pools::sqlx::Executor;
@@ -12,11 +12,18 @@ pub struct ApiResponse {
     status: String,
     // message: String,
 }
+#[derive(Deserialize, Debug, Serialize)]
+pub struct RequestPayload {
+    raw_url: String,
+}
 
-#[post("/v1/links/minify", format = "application/json", data = "<raw_url>")]
-pub async fn minify(mut database: Connection<RustlyDatastore>, raw_url: String) -> Json<String> {
-    println!("{}", raw_url);
-    let original_url = raw_url.parse::<String>().unwrap();
+#[post("/v1/links/minify", format = "application/json", data = "<payload>")]
+pub async fn minify(
+    mut database: Connection<RustlyDatastore>,
+    payload: Json<RequestPayload>,
+) -> Json<String> {
+    println!("{:?}, raw_url{}", payload, payload.raw_url);
+    /*  let original_url = raw_url.parse::<String>().unwrap();
     let url_id = nanoid!(6);
     let total_views = 0;
 
@@ -30,12 +37,12 @@ pub async fn minify(mut database: Connection<RustlyDatastore>, raw_url: String) 
     // .execute(&mut database);
     let res = database.execute(query).await;
     println!("{:?}", res);
-    // Json(response)
-    let minified_url = format!("{}/{}", dotenv!("APP_URL"), url_id);
+    // Json(response) */
+    let minified_url = format!("{}/{}", dotenv!("APP_URL"), "url_id)");
     Json(minified_url)
 }
 
-//to retrieve the minified url from the database then redirect them to the original url
+// to retrieve the minified url from the database then redirect them to the original url
 // #[get("/<url_id>")]
 // pub fn get_minified_url(url_id: String) -> &'static str {
 //     "https://www.rust-lang.org/en-US/"
