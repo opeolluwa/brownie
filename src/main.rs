@@ -1,5 +1,7 @@
 #[macro_use]
 extern crate rocket; // rocket is a framework for building web applications with Rust.
+#[macro_use]
+extern crate dotenv_codegen;
 use rocket_dyn_templates::Template; //for parsing of templates
 mod routes; //import the route handlers from the routes module
 use rocket::fs::{relative, FileServer}; //for serving static files

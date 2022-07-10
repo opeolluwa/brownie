@@ -1,9 +1,10 @@
 use crate::RustlyDatastore;
-// use mysql::serde::Serialize;
 use nanoid::nanoid;
+// use rocket::response;
 use rocket::serde::json::Json;
 use rocket::serde::Serialize;
 use rocket_db_pools::sqlx;
+use rocket_db_pools::sqlx::Executor;
 use rocket_db_pools::Connection;
 
 #[derive(Responder, Debug, Serialize)]
@@ -13,7 +14,7 @@ pub struct ApiResponse {
 }
 
 #[post("/v1/links/minify", format = "application/json", data = "<raw_url>")]
-pub fn minify(mut database: Connection<RustlyDatastore>, raw_url: String) -> Json<ApiResponse> {
+pub async fn minify(mut database: Connection<RustlyDatastore>, raw_url: String) -> Json<String> {
     println!("{}", raw_url);
     let original_url = raw_url.parse::<String>().unwrap();
     let url_id = nanoid!(6);
@@ -24,17 +25,16 @@ pub fn minify(mut database: Connection<RustlyDatastore>, raw_url: String) -> Jso
     let query = sqlx::query(
         "INSERT INTO links (url_id, original_url, last_modified, total_views) VALUES (?, ?, ?, ?)",
     )
-    .bind(url_id)
+    .bind(url_id.clone())
     .bind(original_url)
     .bind(last_modified)
     .bind(total_views);
-    let response = ApiResponse {
-        status: "success".to_string(),
-        // message: "minified url".to_string(),
-        // payload: { minified_url:  "http://localhost:8000".to_string() },
-    };
-    Json(response)
-    // Json(raw_url)
+    // .execute(&mut database);
+    let res = database.execute(query).await;
+    println!("{:?}", res);
+    // Json(response)
+    let minified_url = format!("{}/{}", dotenv!("APP_URL"), url_id);
+    Json(minified_url)
 }
 
 //to retrieve the minified url from the database then redirect them to the original url
