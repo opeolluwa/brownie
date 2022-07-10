@@ -12,7 +12,7 @@ pub struct ApiResponse {
     status: String,
     // message: String,
 }
-#[derive(Deserialize, Debug, Serialize)]
+#[derive(Deserialize, Debug, Serialize, Clone)]
 pub struct RequestPayload {
     raw_url: String,
 }
@@ -23,13 +23,14 @@ pub async fn minify(
     payload: Json<RequestPayload>,
 ) -> Json<String> {
     println!("{:?}, raw_url{}", payload, payload.raw_url);
-    /*  let original_url = raw_url.parse::<String>().unwrap();
+    let raw_url = &payload.clone().raw_url;
+    let original_url = raw_url.parse::<String>().unwrap();
     let url_id = nanoid!(6);
     let total_views = 0;
 
     //save the data
     let query = sqlx::query(
-        "INSERT INTO links (url_id, original_url, last_modified, total_views) VALUES (?, ?, ?)",
+        "INSERT INTO links (url_id, original_url, total_views) VALUES (?, ?, ?)",
     )
     .bind(url_id.clone())
     .bind(original_url)
@@ -38,7 +39,7 @@ pub async fn minify(
     let res = database.execute(query).await;
     println!("{:?}", res);
     // Json(response) */
-    let minified_url = format!("{}/{}", dotenv!("APP_URL"), "url_id)");
+    let minified_url = format!("{}/{}", dotenv!("APP_URL"), url_id);
     Json(minified_url)
 }
 
