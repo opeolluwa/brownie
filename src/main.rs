@@ -4,20 +4,30 @@ extern crate rocket; // rocket is a framework for building web applications with
 extern crate dotenv_codegen;
 use rocket_dyn_templates::Template; //for parsing of templates
 mod routes; //import the route handlers from the routes module
-use rocket::fs::{relative, FileServer}; //for serving static files
+use rocket::{fs::{relative, FileServer}, response::content::RawHtml}; //for serving static files
 use rocket_db_pools::{sqlx, Database};
-use routes::*; //import all route handlers from the routes module //for database connection
+use routes::*;
+use rust_embed::RustEmbed; //import all route handlers from the routes module //for database connection
+
+
+//static files
+#[derive(RustEmbed)]
+#[folder = "public/"]
+#[prefix = "static/"]
+struct StaticFiles;
 
 //init database config
 #[derive(Database)]
 #[database("rustly_datastore")]
 pub struct RustlyDatastore(sqlx::MySqlPool);
 
+
+
 #[launch]
 fn rocket() -> _ {
     rocket::build()
         //views
-        .mount("/", routes![views::index, views::login, views::sign_up])
+        .mount("/", routes![views::index, views::login, views::sign_up, ])
         .mount("/auth", routes![auth::login, auth::sign_up]) //auth routes through POST requests
         .mount("/dashboard", routes![users::dashboard]) //dashboard routes through GET requests
         .mount("/api", routes![api::minify])
