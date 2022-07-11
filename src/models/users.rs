@@ -52,7 +52,7 @@ impl User {
     pub async fn new(mut database: Connection<RustlyDatastore>, user: User) -> ApiResponse<()> {
         let hashed_password = hash(user.password, DEFAULT_COST).unwrap();
         let query =
-            sqlx::query("INSERT INTO user_information (firstname, lastname, username, password, email) VALUES (?, ?, ?, ?,?)")
+            sqlx::query("INSERT INTO users_information (firstname, lastname, username, password, email) VALUES (?, ?, ?, ?,?)")
                 .bind(user.firstname)
                 .bind(user.lastname)
                 .bind(user.username)

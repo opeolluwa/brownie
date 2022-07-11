@@ -18,10 +18,7 @@ pub async fn sign_up(
 ) -> Json<ApiResponse<()>> {
     let new_user = User::new(database, user.into_inner()).await;
     // "sign up".to_string()
-    println!("{:?}", new_user);
-    todo!()
-    /*  ApiResponse {
-        success: todo!(),
-        data: todo!(),
-    } */
+    // println!("{:?}", new_user);
+    // todo!()
+    Json(new_user)
 }
