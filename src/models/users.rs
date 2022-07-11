@@ -5,17 +5,15 @@ use crate::RustlyDatastore;
 use bcrypt::{hash, DEFAULT_COST};
 
 ///define a public struct to handle  user data
-/// the obeject will be major interface in creation and query of users
-
+/// the object will be major interface in creation and query of users
 #[derive(Debug, Serialize, Deserialize)]
 pub struct User {
-    firstname: String,
-    lastname: String,
-    username: String,
-    password: String,
-    email: String,
+    pub firstname: String,
+    pub lastname: String,
+    pub username: String,
+    pub password: String,
+    pub email: String,
 }
-
 
 ///an object to return response  for each api request
 /// the object will contain a success field which return true or false
@@ -24,9 +22,24 @@ pub struct User {
 /// the data field will contain any data that need to be sent back to the client
 #[derive(Debug, Serialize, Deserialize)]
 pub struct ApiResponse<T> {
-    success: bool,
-    message: String,
-    data: T,
+    pub success: bool,
+    pub message: String,
+    pub data: T,
+}
+
+///bearer token for authentication
+pub struct BearerToken {
+    token: String,
+}
+
+///a struct to handle user data
+/// the object will be major interface in mutation and query of users
+#[derive(Debug, Serialize, Deserialize)]
+pub struct UserData {
+    pub firstname: String,
+    pub lastname: String,
+    pub username: String,
+    pub email: String,
 }
 
 #[derive(Debug, Serialize, Deserialize)]
@@ -68,20 +81,27 @@ impl User {
             message: "User successfully created".to_string(),
         }
     }
-    /* ///add new user to database
-    pub fn add_user(&mut self, user: User) {
-        self.users.insert(user.user_id, user);
-    }
 
-    pub fn get_user(&self, user_id: &str) -> Option<&User> {
-        self.users.get(user_id)
+    /// retrieve a user from the database
+    pub async fn get_user(
+        mut database: Connection<RustlyDatastore>,
+        username: String,
+        password: String,
+    ) -> UserData {
+        let query = sqlx::query("SELECT * FROM users_information WHERE username = ?")
+            .bind(username)
+            .fetch_one(&mut *database)
+            .await;
+        /* .map_ok(|r| Json(Post { id: Some(r.id), title: r.title, text: r.text }))
+        .await
+        .ok() */
+        // let query_response = query.fetch_one(database);
+        println!("{:?}", query);
+        UserData {
+            firstname: "".to_string(),
+            lastname: "".to_string(),
+            username: "".to_string(),
+            email: "".to_string(),
+        }
     }
-
-    pub fn get_user_mut(&mut self, user_id: &str) -> Option<&mut User> {
-        self.users.get_mut(user_id)
-    }
-
-    pub fn upadate_user(&mut self, user: User) {
-        self.users.insert(user.user_id, user);
-    } */
 }
