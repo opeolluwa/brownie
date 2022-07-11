@@ -86,7 +86,7 @@ impl User {
     pub async fn get_user(
         mut database: Connection<RustlyDatastore>,
         username: String,
-        password: String,
+        _password: String,
     ) -> UserData {
         let query = sqlx::query("SELECT * FROM users_information WHERE username = ?")
             .bind(username)

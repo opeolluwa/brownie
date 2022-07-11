@@ -55,8 +55,20 @@
   color: #6437a0;
 }
 
-.error {
+.error,
+.success {
   color: #fd4147 !important;
+  font-size: 0.95rem;
+  font-weight: 400;
+  line-height: 20px;
+  transition: all 30ms 300ms ease-in-out;
+  margin: inherit;
+  margin-top: -0.5rem;
+  margin-left: 30px;
+}
+
+.success {
+  color: #34b90b !important;
   font-size: 0.95rem;
   font-weight: 400;
   line-height: 20px;

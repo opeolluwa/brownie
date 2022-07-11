@@ -23,29 +23,26 @@ tryNowForm === null || tryNowForm === void 0 ? void 0 : tryNowForm.addEventListe
         }
         tryNowButton.disabled = true; //disable the button
         tryNowButton.innerHTML = "Loading..."; //change the button text
-        // disable the button, hide the error message and send the content to the server
-        // document?.querySelector("#try-now-form button").classList.add("disabled") = true;
-        const data = {
+        const serverResponse = yield postData("/api/v1/links/minify", {
             original_url: inputValue
-        };
-        const options = {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(data)
-        };
-        // console.log(options);
-        const serverResponse = yield fetch("/api/v1/links/minify", options);
-        // const responseData: any = await serverResponse;
+        });
+        const { success, message, data } = yield serverResponse;
         //det the button to active 
         tryNowButton.disabled = false;
         tryNowButton.innerHTML = "Try Now 🚀";
         //clear the input field
-        inputFeed.value = "";
-        // console.log(serverResponse.status);
-        // console.log(Object.keys(serverResponse.data));
-        console.log(serverResponse.body);
+        if (!success) {
+            const pasteBin = document.querySelector("#try-now-form span.error-message");
+            pasteBin.innerText = message;
+            tryNowButton.addEventListener("click", clipBoard);
+            return;
+        }
+        //if error 
+        inputFeed.value = data;
+        inputFeed.select();
+        inputFeed.setSelectionRange(0, 99999);
+        navigator.clipboard.writeText(inputFeed.value);
+        tryNowButton.innerHTML = "Copy 📋";
     });
 });
 //hide the error message on innput focus{
@@ -53,9 +50,13 @@ inputFeed === null || inputFeed === void 0 ? void 0 : inputFeed.addEventListener
     // document?.querySelector("#try-now-form span.error-message")?.classList.remove("show-error")
     removeStyle("d-inline-block");
 });
+inputFeed === null || inputFeed === void 0 ? void 0 : inputFeed.addEventListener("focus", function () {
+    // document?.querySelector("#try-now-form span.error-message")?.classList.remove("show-error")
+    removeStyle("d-inline-block");
+});
 //if no input or invalid input
 function validateInput(inputValue) {
-    if (!inputValue.trim().startsWith("http") || !inputValue.trim().startsWith("https://")) {
+    if ( /* !inputValue.trim().startsWith("http://") || */!inputValue.trim().startsWith("http")) {
         return false;
     }
     return true;
@@ -67,4 +68,32 @@ function removeStyle(className, domSelector = "#try-now-form span.error-message"
 function appendStyle(className, domSelector = "#try-now-form span.error-message") {
     var _a;
     (_a = document === null || document === void 0 ? void 0 : document.querySelector(domSelector)) === null || _a === void 0 ? void 0 : _a.classList.add(className);
+}
+// Example POST method implementation:
+function postData(url = '', data = {}) {
+    return __awaiter(this, void 0, void 0, function* () {
+        // Default options are marked with *
+        const response = yield fetch(url, {
+            method: 'POST',
+            mode: 'cors',
+            cache: 'no-cache',
+            credentials: 'same-origin',
+            headers: {
+                'Content-Type': 'application/json'
+                // 'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            redirect: 'follow',
+            referrerPolicy: 'no-referrer',
+            body: JSON.stringify(data) // body data type must match "Content-Type" header
+        });
+        return response.json(); // parses JSON response into native JavaScript objects
+    });
+}
+function clipBoard() {
+    inputFeed.select();
+    inputFeed.setSelectionRange(0, 99999);
+    navigator.clipboard.writeText(inputFeed.value);
+    // alert("Copied the text: " + inputFeed.value);
+    inputFeed.value = "";
+    tryNowButton.innerHTML = "Try Now 🚀";
 }

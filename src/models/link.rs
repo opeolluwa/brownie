@@ -17,7 +17,7 @@ impl Link {
         let url_id = nanoid!(6); // generate a random string of 6 characters
         let total_views = 0;
         //save the data
-        let query =
+        let _query =
             sqlx::query("INSERT INTO links (url_id, original_url, total_views) VALUES (?, ?, ?)")
                 .bind(url_id.clone())
                 .bind(original_url)
