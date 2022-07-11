@@ -28,9 +28,9 @@ pub struct ApiResponse<T> {
 }
 
 ///bearer token for authentication
-pub struct BearerToken {
-    token: String,
-}
+// pub struct BearerToken {
+//     token: String,
+// }
 
 ///a struct to handle user data
 /// the object will be major interface in mutation and query of users

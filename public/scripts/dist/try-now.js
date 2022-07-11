@@ -26,7 +26,7 @@ tryNowForm === null || tryNowForm === void 0 ? void 0 : tryNowForm.addEventListe
         // disable the button, hide the error message and send the content to the server
         // document?.querySelector("#try-now-form button").classList.add("disabled") = true;
         const data = {
-            raw_url: inputValue
+            original_url: inputValue
         };
         const options = {
             method: "POST",
@@ -44,7 +44,7 @@ tryNowForm === null || tryNowForm === void 0 ? void 0 : tryNowForm.addEventListe
         //clear the input field
         inputFeed.value = "";
         // console.log(serverResponse.status);
-        // console.log(Object.keys(responseData.data));
+        // console.log(Object.keys(serverResponse.data));
         console.log(serverResponse.body);
     });
 });
