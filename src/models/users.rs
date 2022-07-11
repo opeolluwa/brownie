@@ -20,7 +20,7 @@ impl User {
             firstname: firstname.to_string(),
             username: username.to_string(),
             password: password.to_string(),
-            email: "".to_string(),
+            email: email.to_string(),
         }
     }
 

@@ -3,9 +3,7 @@ use nanoid::nanoid;
 use rocket::serde::json::Json;
 use rocket::serde::Deserialize;
 use rocket::serde::Serialize;
-use rocket_db_pools::sqlx;
-use rocket_db_pools::sqlx::Executor;
-use rocket_db_pools::Connection;
+use rocket_db_pools::{sqlx, sqlx::Executor, Connection};
 
 #[derive(Responder, Debug, Serialize)]
 pub struct ApiResponse {
