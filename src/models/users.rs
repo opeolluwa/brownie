@@ -1,4 +1,4 @@
-use rocket::serde::{Deserialize, Serialize};
+use rocket::serde::{json::Json, Deserialize, Serialize};
 use rocket_db_pools::{sqlx, sqlx::Executor, Connection};
 extern crate bcrypt;
 use crate::RustlyDatastore;
@@ -92,11 +92,9 @@ impl User {
             .bind(username)
             .fetch_one(&mut *database)
             .await;
-        /* .map_ok(|r| Json(Post { id: Some(r.id), title: r.title, text: r.text }))
-        .await
-        .ok() */
+
         // let query_response = query.fetch_one(database);
-        println!("{:?}", query);
+        println!("{:?}", Json::from(query));
         UserData {
             firstname: "".to_string(),
             lastname: "".to_string(),
