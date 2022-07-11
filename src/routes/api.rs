@@ -1,15 +1,13 @@
 use crate::RustlyDatastore;
 use nanoid::nanoid;
-use rocket::serde::json::Json;
-use rocket::serde::Deserialize;
-use rocket::serde::Serialize;
+use rocket::serde::{json::Json, Deserialize, Serialize};
 use rocket_db_pools::{sqlx, sqlx::Executor, Connection};
 
-#[derive(Responder, Debug, Serialize)]
-pub struct ApiResponse {
-    status: String,
-    // message: String,
-}
+// #[derive(Responder, Debug, Serialize)]
+// pub struct ApiResponse {
+//     status: String,
+//     // message: String,
+// }
 #[derive(Deserialize, Debug, Serialize, Clone)]
 pub struct RequestPayload {
     raw_url: String,
@@ -27,12 +25,11 @@ pub async fn minify(
     let total_views = 0;
 
     //save the data
-    let query = sqlx::query(
-        "INSERT INTO links (url_id, original_url, total_views) VALUES (?, ?, ?)",
-    )
-    .bind(url_id.clone())
-    .bind(original_url)
-    .bind(total_views);
+    let query =
+        sqlx::query("INSERT INTO links (url_id, original_url, total_views) VALUES (?, ?, ?)")
+            .bind(url_id.clone())
+            .bind(original_url)
+            .bind(total_views);
     // .execute(&mut database);
     let res = database.execute(query).await;
     println!("{:?}", res);
