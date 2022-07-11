@@ -3,12 +3,13 @@ extern crate rocket; // rocket is a framework for building web applications with
 #[macro_use]
 extern crate dotenv_codegen;
 use rocket_dyn_templates::Template; //for parsing of templates
-mod routes; //import the route handlers from the routes module
 use rocket::{fs::{relative, FileServer}}; //for serving static files
 use rocket_db_pools::{sqlx, Database};
 use routes::*;
 use rust_embed::RustEmbed; //import all route handlers from the routes module //for database connection
 
+mod routes; //import the route handlers from the routes module
+mod models; //import the models from the models module
 
 //static files
 #[derive(RustEmbed)]
