@@ -1,11 +1,7 @@
-use crate::models::users::ApiResponse;
 use crate::RustlyDatastore;
 use nanoid::nanoid;
-use rocket::{
-    futures::io::ReadToString,
-    serde::{json::Json, Deserialize, Serialize},
-};
-use rocket_db_pools::{sqlx, sqlx::Executor, Connection};
+use rocket::serde::{Deserialize, Serialize};
+use rocket_db_pools::{sqlx, Connection};
 #[derive(Debug, Serialize, Deserialize)]
 pub struct Link {
     pub original_url: String,
@@ -14,7 +10,9 @@ pub struct Link {
 }
 
 impl Link {
-    /// Accepts original url and returns a minified url
+    /// Accepts
+    /// Minify the url and store it in the database
+    /// return the minified url
     pub async fn minify(mut database: Connection<RustlyDatastore>, original_url: String) -> String {
         let url_id = nanoid!(6); // generate a random string of 6 characters
         let total_views = 0;
