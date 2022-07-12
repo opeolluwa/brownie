@@ -27,8 +27,13 @@ RUN cargo install --path .
 
 
 FROM debian:buster-slim as runner
-COPY --from=builder /usr/local/cargo/bin/rust-rocket-app /usr/local/bin/rust-rocket-app
+WORKDIR /app
+COPY --from=builder /usr/local/cargo/bin/rustly /app/rustly
+COPY --from=builder /app/migrations /app/migrations
+COPY --from=builder /app/public /app/public
+COPY --from=builder /app/templates /app/templates
+COPY --from=builder /app/*.toml /app/
 ENV ROCKET_ADDRESS=0.0.0.0
 
 EXPOSE 8000
-CMD ["rust-rocket-app"]
+CMD ["/app/rustly"]
