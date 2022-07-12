@@ -1,9 +1,12 @@
 use rocket_dyn_templates::{context, Template};
 //the home page
 #[get("/")]
-pub fn index() -> &'static str {
-    "hello world"
-    // Template::render("index", context! { title:"Rustly - minimal URL shortener"  })
+pub fn index() -> Template {
+    // "hello world"
+    Template::render(
+        "index",
+        context! { title:"Rustly - minimal URL shortener"  },
+    )
 }
 
 //the login page accessible only to unauthenticated users via /auth/login
