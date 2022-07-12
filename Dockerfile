@@ -1,30 +1,20 @@
-# FROM rust:slim-buster as build
-FROM ekidd/rust-musl-builder:stable as build
-# RUN mkdir /app
+FROM rust:1.62.0 as build
+
+# FROM ekidd/rust-musl-builder:stable as build
+
 WORKDIR /app
 COPY . .
-RUN cargo clean && cargo build --release
-# RUN cargo build --release
-# RUN cargo new rust-app
-# RUN cd rust-app && cargo build
-# RUN cd ..
+RUN cargo install --path .
+# FROM debian:buster-slim
 
-# RUN ls
+# RUN mkdir /app
+# WORKDIR /app
 
-# RUN cargo uninstall rustly
-# RUN cargo build
-# RUN cargo install --path . 
+# COPY --from=build /app/target/debug/rustly /app/
 
-FROM debian:buster-slim
+# COPY --from=build /app/migrations /app/migrations
+# COPY --from=build /app/public /app/public
+# COPY --from=build /app/templates /app/templates
+# COPY --from=build /app/*.toml /app/
 
-RUN mkdir /app
-WORKDIR /app
-
-COPY --from=build /app/target/debug/rustly /app/
-# COPY --from=build /app/rustly/target/release/rustly ./app
-COPY --from=build /app/migrations /app/migrations
-COPY --from=build /app/public /app/public
-COPY --from=build /app/templates /app/templates
-COPY --from=build /app/*.toml /app/
-
-CMD ["/app/rustly"]
+# CMD ["/app/rustly"]

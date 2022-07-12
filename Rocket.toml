@@ -1,6 +1,6 @@
 [default.databases.rustly_datastore]
 url = "mysql://thunder:storm@localhost/rustly_datastore"
-# url="mysql://s1vn4d827ww3:pscale_pw_bXa68K7RJKBoQ4AzHiyaGhRNuJr3RAPcafbSiSfmI3Y@8vtay4at036n.us-east-1.psdb.cloud/edwork"
+
 
 min_connections = 64
 max_connections = 1024
