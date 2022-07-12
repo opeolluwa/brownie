@@ -1,8 +1,0 @@
-[default.databases.rustly_datastore]
-url = "mysql://thunder:storm@localhost/rustly_datastore"
-
-
-min_connections = 64
-max_connections = 1024
-connect_timeout = 5
-idle_timeout = 120
