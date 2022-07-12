@@ -1,8 +1,8 @@
 use rocket::serde::{json::Json, Deserialize, Serialize};
 use rocket_db_pools::{sqlx, sqlx::Executor, Connection};
-extern crate bcrypt;
+// extern crate bcrypt;
 use crate::RustlyDatastore;
-use bcrypt::{hash, DEFAULT_COST};
+// use bcrypt::{hash, DEFAULT_COST};
 
 ///define a public struct to handle  user data
 /// the object will be major interface in creation and query of users
@@ -63,7 +63,8 @@ pub struct DatabaseResponse<T> {
 /// methods to create and query the user object
 impl User {
     pub async fn new(mut database: Connection<RustlyDatastore>, user: User) -> ApiResponse<()> {
-        let hashed_password = hash(user.password, DEFAULT_COST).unwrap();
+        // let hashed_password = hash(user.password, DEFAULT_COST).unwrap();
+        let hashed_password = user.password.clone();
         let query =
             sqlx::query("INSERT INTO users_information (firstname, lastname, username, password, email) VALUES (?, ?, ?, ?,?)")
                 .bind(user.firstname)

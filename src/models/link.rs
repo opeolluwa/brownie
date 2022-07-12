@@ -24,8 +24,9 @@ impl Link {
                 .bind(total_views)
                 .execute(&mut *database)
                 .await;
+                let minified_url = format!("{}/{}", "APP_URL", url_id);
 
-        let minified_url = format!("{}/{}", dotenv!("APP_URL"), url_id);
+        // let minified_url = format!("{}/{}", dotenv!("APP_URL"), url_id);
         minified_url
     }
 

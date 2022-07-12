@@ -2,7 +2,7 @@
 extern crate rocket; // rocket is a framework for building web applications with Rust.
 #[macro_use]
 extern crate dotenv_codegen;
-use rocket::fs::{relative, FileServer}; //for serving static files
+// use rocket::fs::{relative, FileServer}; //for serving static files
 use rocket_db_pools::{sqlx, Database};
 use rocket_dyn_templates::Template; //for parsing of templates
 use routes::*;
