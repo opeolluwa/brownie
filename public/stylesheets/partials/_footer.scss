@@ -9,14 +9,33 @@ footer {
   }
 }
 
-footer .copyright {
-  text-align: center;
+footer {
   font-weight: 400;
   color: $white;
   text-transform: capitalize;
+  padding-top: 30px;
+  & > * {
+    display: block;
+  }
+  & .view {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  & hr.view {
+    border: 1px solid rgb(63, 62, 62);
+    display: flex;
+    max-width: 80%;
+    text-align: center;
+    margin: 0.35rem auto;
+  }
   a {
     color: inherit;
-    text-decoration: underline;
+    text-decoration: none;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -25,5 +44,6 @@ footer .copyright {
   }
   ul {
     display: flex;
+    list-style: none;
   }
 }

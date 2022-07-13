@@ -7,6 +7,10 @@
   }
 }
 
+.text-center {
+  text-align: center;
+}
+
 .view {
   padding: 0 100px;
   margin-bottom: 4rem;
@@ -181,6 +185,31 @@ header ul li:last-child a {
 .container {
   position: relative;
 }
+.container h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  line-height: 45px;
+  font-stretch: expanded;
+  text-transform: capitalize;
+  line-height: 65px;
+}
+@media screen and (max-width: 600px) {
+  .container h2 {
+    font-size: 2rem;
+    line-height: 55px;
+  }
+}
+.container p.sub-hero-text {
+  max-width: 80%;
+  line-height: 36px;
+  font-stretch: expanded;
+  font-size: 1.25rem;
+  color: #e6e6e6;
+}
+.container p.sub-hero-text::first-letter {
+  text-transform: uppercase;
+}
 
 main .container #hero {
   width: 65%;
@@ -319,31 +348,6 @@ main .container #about img {
     display: none;
   }
 }
-main .container #about h2 {
-  font-size: 2.5rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
-  line-height: 45px;
-  font-stretch: expanded;
-  text-transform: capitalize;
-  line-height: 65px;
-}
-@media screen and (max-width: 600px) {
-  main .container #about h2 {
-    font-size: 2rem;
-    line-height: 55px;
-  }
-}
-main .container #about p.sub-hero-text {
-  max-width: 80%;
-  line-height: 36px;
-  font-stretch: expanded;
-  font-size: 1.25rem;
-  color: #e6e6e6;
-}
-main .container #about p.sub-hero-text::first-letter {
-  text-transform: uppercase;
-}
 main .container #about a.btn {
   border-radius: 24px;
   box-sizing: border-box;
@@ -373,14 +377,20 @@ main .container #about a.btn {
   }
 }
 
-main #pricing > h2 {
+main #pricing > h2, main #pricing > p {
   text-align: center;
+}
+main #pricing p.sub-hero-text {
+  color: #7d7d7d;
+  padding: 0;
+  margin: 0;
+  border: 1px solid red;
 }
 main #pricing > div {
   margin-top: 5rem;
   display: grid;
   justify-content: center;
-  grid-template-columns: repeat(2, 450px);
+  grid-template-columns: repeat(3, 1fr);
   grid-template-rows: 500px;
   column-gap: 5rem;
 }
@@ -471,23 +481,43 @@ footer a {
   text-decoration: none;
 }
 
-footer .copyright {
-  text-align: center;
+footer {
   font-weight: 400;
   color: #f2f2f2;
   text-transform: capitalize;
+  padding-top: 30px;
 }
-footer .copyright a {
+footer > * {
+  display: block;
+}
+footer .view {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 0;
+  padding-bottom: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+footer hr.view {
+  border: 1px solid #3f3e3e;
+  display: flex;
+  max-width: 80%;
+  text-align: center;
+  margin: 0.35rem auto;
+}
+footer a {
   color: inherit;
-  text-decoration: underline;
+  text-decoration: none;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   margin: 0 0.5rem;
   text-transform: capitalize;
 }
-footer .copyright ul {
+footer ul {
   display: flex;
+  list-style: none;
 }
 
 main#login .form-field {

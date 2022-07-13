@@ -21,9 +21,7 @@
     />
 
     <link rel="stylesheet" href="static/stylesheets/index.css" />
-    {{! <script src="static/scripts/dist/index.js"></script> }}
-    <style>
-    </style>
+   
   </head>
   <body>
     <header>
@@ -80,14 +78,7 @@
             </form>
 
             <!--call to action-->
-            <div class="cta d-none">
-              <a href="/login">
-                <button class="btn">get started</button>
-              </a>
-              <a href="/about">
-                <button class="btn">learn more</button>
-              </a>
-            </div>
+            
           </div>
          
         </div>
@@ -113,22 +104,33 @@
             <img src="/static/img/illustration/about.png" alt="about">
           </div>
         </div>
+        
         <div id="pricing">
-          <h2>The right plan for your needs</h2>
-          <div>
+          <h2>Flexible Plans</h2>
+          <p class="sub-hero-text text-center">We&apos;ve got the right plan for your needs</p>
+          <div class="view">
             <div class="price-card">
+              <h3 class="capital">Lite
+              </h3>
+              <p>amet consectetur adipisicing elit.</p>
+              <div class="price"><sup>$</sup> 20 
+              <sub>/ URL</sub></div>
+            </div>
+
+             <div class="price-card">
               <h3 class="capital">Basic
               </h3>
               <p>amet consectetur adipisicing elit.</p>
               <div class="price"><sup>$</sup> 20 
       <sub>/ URL</sub></div>
             </div>
+
             <div class="price-card">
-              <h3 class="capital">Advanced
+              <h3 class="capital">Enteprise
               </h3>
               <p>amet consectetur adipisicing elit.</p>
             <div class="price"><sup>$</sup> 60 
-      <sub>/ URL</sub></div>
+             <sub>/ URL</sub></div>
             </div>
           </div>
         </div>
@@ -136,11 +138,30 @@
       </div>
     </main>
     <footer>
-      <div class="copyright">
-         &copy; 2020
+      <div class="view">
+        <a href="/">Rustly</a>
+        <ul>
+          <li><a href="#">Terms of Use</a></li>
+          <li><a href="#">Privacy policy</a></li>
+          <li><a href="#">Cookie policy</a></li>
+        </ul>
+      </div>
+<hr class="view">
+      <div class="view">
+        <div>
+         &copy; {{current_year}}
         <a href="https://www.linkedin/in/adeoye-ao">Ọpẹ́olúwa</a> 
         All rights
         reserved.
+      </div>
+        <ul>
+          <li><a href="https://github.com/opeolluwa" class="bi-github"></a></li>
+          <li><a href="https://twitter.com/_opeolluwa" class="bi-twitter"></a></li>
+          <li><a href="https://www.linked/in/adeoye-ao" class="bi-linkedin"></a></li>
+
+        </ul>
+      </div>
+     
     </footer>
     <script src="static/scripts/dist/try-now.js"></script>
   </body>
