@@ -46,4 +46,30 @@ footer {
     display: flex;
     list-style: none;
   }
+
+  @media screen and (max-width: 600px) {
+    & .view {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+    ul {
+      display: block;
+      text-align: center;
+      li {
+        margin: 0.75rem 0;
+      }
+    }
+    ul.socials {
+      display: flex;
+    }
+    & hr.view {
+      margin: 0.5rem 0;
+      max-width: 45%;
+      border-width: 1px;
+      border-style: dashed;
+      margin: 0.75rem auto;
+    }
+  }
 }

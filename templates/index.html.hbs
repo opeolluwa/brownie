@@ -25,11 +25,17 @@
   </head>
   <body>
     <header>
-      <nav>
-        <ul class="view">
-          <li>
-            <a href="/">logo</a>
-          </li>
+      <nav class="view nav">
+        <div>
+           <a href="/" class="brand-logo">
+            {{!-- <img src="static/img/logo.png" alt="logo" /> --}}
+            Rust.ly
+          </a>
+        </div>
+        <div class="nav-wrapper ">
+         
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+         
           <li>
             <a href="/">home</a>
           </li>
@@ -40,56 +46,60 @@
             <a href="/#contact">Contact</a>
           </li>
           <li>
-            <a href="/login">login</a>
+            {{!-- <a href="/login">login</a> --}}
           </li>
         </ul>
+        </div>
+        <div class="nav-trigger bi-list d-desktop-none"></div>
       </nav>
     </header>
     <main>
       <div class="container">
-        <div id="hero" class="view">
-          <div>
-            <h1 id="hero-text" class="capitalize">
-              One Short link,
-              <br class="d-desktop" />
-              infinite
-              <span class="gradient">possibilities.</span>
-            </h1>
+      <div id="hero" class="view">
+  <div>
+    <h1 id="hero-text" class="capitalize">
+      One Short link,
+      <br class="d-desktop" />
+      infinite
+      <span class="gradient">possibilities.</span>
+    </h1>
 
-            <p class="sub-hero">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam,
-              animi iste. Repellendus fugiat nesciunt omnis fuga at eos eligendi
-              asperiores illo praesentium provident laudantium soluta adipisci
-              nulla veniam, saepe dolor!
-            </p>
-            <!--form-->
-            <form action="/api/v1/links/minify" method="post" id="try-now-form">
-              <div class="form-field box-shadow">
-                <input
-                  type="text"
-                  name="uri"
-                  id=""
-                  placeholder="https://example.com/awesome"
-                />
-                <button type="submit" class="btn">try now 🚀  </button>
-                <span class="error-message error">Please enter a valid url starting with http:// or https://</span>
-                <span class="minified-link success"></span>
-              </div>
-            </form>
+    <p class="sub-hero">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam, animi
+      iste. Repellendus fugiat nesciunt omnis fuga at eos eligendi asperiores
+      illo praesentium provident laudantium soluta adipisci nulla veniam, saepe
+      dolor!
+    </p>
+    <!--form-->
+    <form
+      action="/api/v1/links/minify"
+      method="post"
+      id="try-now-form"
+    >
+      <div class="form-field box-shadow">
+        <input
+          type="text"
+          name="uri"
+          id=""
+          placeholder="https://example.com/awesome"
+        />
+        <button type="submit" class="btn">try now 🚀 </button>
+        <span class="error-message error">Please enter a valid url starting with
+          http:// or https://</span>
+        <span class="minified-link success"></span>
+      </div>
+    </form>
 
-            <!--call to action-->
-            
-          </div>
-         
-        </div>
+  </div>
 
+</div>
         <div id="about" class="view">
          <div class="custom-shape-divider-top-1657562747">
     <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
         <path d="M1200 120L0 16.48 0 0 1200 0 1200 120z" class="shape-fill"></path>
     </svg>
 </div>
-          <div>
+          <div class="title" style="text-align: center;">
             <h2>everything you need
               <br class="d-desktop" />
               for analysis and audience analysis</h2>
@@ -151,10 +161,10 @@
         <div>
          &copy; {{current_year}}
         <a href="https://www.linkedin/in/adeoye-ao">Ọpẹ́olúwa</a> 
-        All rights
-        reserved.
+        <span class="d-desktop">All rights
+        reserved.</span>
       </div>
-        <ul>
+        <ul class="socials">
           <li><a href="https://github.com/opeolluwa" class="bi-github"></a></li>
           <li><a href="https://twitter.com/_opeolluwa" class="bi-twitter"></a></li>
           <li><a href="https://www.linked/in/adeoye-ao" class="bi-linkedin"></a></li>

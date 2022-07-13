@@ -33,7 +33,7 @@
 
 main .container {
   #hero {
-    width: 65%;
+    max-width: 65%;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -42,13 +42,14 @@ main .container {
     margin-top: 10vh;
     align-items: center;
     @media screen and( max-width: 600px) {
-      width: 100%;
+      max-width: 85%;
+      margin-bottom: 7.5vh;
       display: block;
     }
   }
 
   & h1 {
-    font-size: 3.5rem;
+    // font-size: 3.5rem;
     font-weight: 700;
     margin-bottom: 1rem;
     line-height: 65px;
@@ -92,7 +93,7 @@ main .container form {
     margin-top: 2rem;
     box-shadow: 1px 5px 42px -17px rgba(23, 20, 20, 0.54);
     @media screen and( max-width: 600px) {
-      grid-template-columns: 1fr;
+      grid-template-columns: 1fr ;
       margin-top: 1rem;
     }
   }
@@ -197,30 +198,6 @@ main .container #about {
 
 //pricing
 main #pricing {
-  & > h2,
-  & > p {
-    text-align: center;
-  }
-  p.sub-hero-text {
-    color: $dark-grey;
-    padding: 0;
-    margin: 0;
-    border: 1px solid red;
-  }
-  & > div {
-    margin-top: 5rem;
-    display: grid;
-    justify-content: center;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: 500px;
-    column-gap: 5rem;
-  }
-  @media screen and( max-width: 600px) {
-    & > div {
-      grid-template-columns: 1fr;
-      grid-template-rows: 1fr;
-    }
-  }
   .price-card {
     border: 2px solid $grey;
     border-radius: 12px;

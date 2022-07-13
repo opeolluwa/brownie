@@ -8,6 +8,19 @@
 .text-center {
   text-align: center;
 }
+.d-desktop-none{
+  display: none;
+}
+
+@media screen and (max-width: 600px) {
+  .d-mobile-node {
+    display: none;
+  }
+  .d-desktop-none{
+    display: unset;
+  }
+}
+
 
 //desktop only
 .view {
