@@ -25,6 +25,9 @@ footer {
     padding-bottom: 0;
     margin-top: 0;
     margin-bottom: 0;
+    @media screen and (max-width: 600px) {
+      padding: 10px 25px;
+    }
   }
   & hr.view {
     border: 1px solid rgb(63, 62, 62);
@@ -44,15 +47,15 @@ footer {
   }
   ul {
     display: flex;
+    align-items: center;
+    justify-content: center;
     list-style: none;
   }
 
   @media screen and (max-width: 600px) {
     & .view {
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
+     display: block;
+     text-align: center;
     }
     ul {
       display: block;
@@ -63,6 +66,9 @@ footer {
     }
     ul.socials {
       display: flex;
+      align-items: center;
+      justify-content: center;
+      list-style: none;
     }
     & hr.view {
       margin: 0.5rem 0;

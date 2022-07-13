@@ -1,6 +1,6 @@
-# FROM rust:1.62.0 as build
+FROM rust:1.62.0 as builder
 
-FROM ekidd/rust-musl-builder:stable as builder
+# FROM ekidd/rust-musl-builder:stable as builder
 
 # WORKDIR /app
 # COPY . .

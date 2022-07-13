@@ -528,6 +528,11 @@ footer .view {
   margin-top: 0;
   margin-bottom: 0;
 }
+@media screen and (max-width: 600px) {
+  footer .view {
+    padding: 10px 25px;
+  }
+}
 footer hr.view {
   border: 1px solid #3f3e3e;
   display: flex;
@@ -546,13 +551,13 @@ footer a {
 }
 footer ul {
   display: flex;
+  align-items: center;
+  justify-content: center;
   list-style: none;
 }
 @media screen and (max-width: 600px) {
   footer .view {
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    display: block;
     text-align: center;
   }
   footer ul {
@@ -564,6 +569,9 @@ footer ul {
   }
   footer ul.socials {
     display: flex;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
   }
   footer hr.view {
     margin: 0.5rem 0;
