@@ -7,6 +7,23 @@
   }
 }
 
+.text-center {
+  text-align: center;
+}
+
+.d-desktop-none {
+  display: none;
+}
+
+@media screen and (max-width: 600px) {
+  .d-mobile-node {
+    display: none;
+  }
+
+  .d-desktop-none {
+    display: unset;
+  }
+}
 .view {
   padding: 0 100px;
   margin-bottom: 4rem;
@@ -145,17 +162,15 @@ body {
 
 header ul {
   list-style: none;
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-}
-header ul li:first-child {
-  grid-column: span 8;
+  display: flex;
+  justify-content: center;
 }
 header ul li {
   line-height: 24px;
   font-size: 1.2rem;
   font-weight: 400;
   padding: 10.5px 5px;
+  margin: 0.5rem;
   text-transform: capitalize;
 }
 header ul li a {
@@ -163,15 +178,32 @@ header ul li a {
   text-decoration: none;
   transition: all 0.3s ease-in-out;
 }
-header ul li:last-child {
-  background-color: #cdcdcd;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 5px;
+@media screen and (max-width: 600px) {
+  header ul li {
+    display: none;
+  }
 }
-header ul li:last-child a {
+
+header nav {
+  padding-top: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px unset !important;
+}
+
+header nav .nav-trigger {
+  font-size: 2rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+header a.brand-logo {
+  text-decoration: none;
+  font-size: 1.35rem;
   color: #101010;
+  font-family: "Raleway", sans-serif;
+  font-weight: 500;
 }
 
 .container > div {
@@ -181,9 +213,34 @@ header ul li:last-child a {
 .container {
   position: relative;
 }
+.container h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  line-height: 45px;
+  font-stretch: expanded;
+  text-transform: capitalize;
+  line-height: 65px;
+}
+@media screen and (max-width: 600px) {
+  .container h2 {
+    font-size: 2rem;
+    line-height: 55px;
+  }
+}
+.container p.sub-hero-text {
+  max-width: 80%;
+  line-height: 36px;
+  font-stretch: expanded;
+  font-size: 1.25rem;
+  color: #e6e6e6;
+}
+.container p.sub-hero-text::first-letter {
+  text-transform: uppercase;
+}
 
 main .container #hero {
-  width: 65%;
+  max-width: 65%;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -194,7 +251,8 @@ main .container #hero {
 }
 @media screen and (max-width: 600px) {
   main .container #hero {
-    width: 100%;
+    max-width: 85%;
+    margin-bottom: 7.5vh;
     display: block;
   }
 }
@@ -230,8 +288,8 @@ main .container h1 + p {
 }
 @media screen and (max-width: 600px) {
   main .container h1 + p {
-    font-size: 1rem;
-    line-height: 25px;
+    line-height: 36px;
+    margin-bottom: 2rem;
   }
 }
 
@@ -303,6 +361,13 @@ main .container #about {
   grid-template-columns: repeat(2, 1fr);
   justify-content: space-between;
   align-items: center;
+  text-align: center;
+}
+main .container #about p {
+  text-align: center !important;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
 }
 @media screen and (max-width: 600px) {
   main .container #about {
@@ -318,31 +383,6 @@ main .container #about img {
   main .container #about img {
     display: none;
   }
-}
-main .container #about h2 {
-  font-size: 2.5rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
-  line-height: 45px;
-  font-stretch: expanded;
-  text-transform: capitalize;
-  line-height: 65px;
-}
-@media screen and (max-width: 600px) {
-  main .container #about h2 {
-    font-size: 2rem;
-    line-height: 55px;
-  }
-}
-main .container #about p.sub-hero-text {
-  max-width: 80%;
-  line-height: 36px;
-  font-stretch: expanded;
-  font-size: 1.25rem;
-  color: #e6e6e6;
-}
-main .container #about p.sub-hero-text::first-letter {
-  text-transform: uppercase;
 }
 main .container #about a.btn {
   border-radius: 24px;
@@ -373,22 +413,23 @@ main .container #about a.btn {
   }
 }
 
-main #pricing > h2 {
+main #pricing div.view:first-child {
   text-align: center;
 }
-main #pricing > div {
-  margin-top: 5rem;
-  display: grid;
-  justify-content: center;
-  grid-template-columns: repeat(2, 450px);
-  grid-template-rows: 500px;
-  column-gap: 5rem;
+main #pricing div.view:first-child h2 {
+  margin-bottom: 0;
+  padding: 0;
 }
-@media screen and (max-width: 600px) {
-  main #pricing > div {
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr;
-  }
+main #pricing div.view:first-child p {
+  max-width: 90%;
+  margin: 0 auto;
+  padding: 0;
+  color: #7d7d7d;
+}
+main #pricing div.view:last-child {
+  display: none !important;
+  flex-direction: column;
+  justify-content: space-between;
 }
 main #pricing .price-card {
   border: 2px solid #e6e6e6;
@@ -428,8 +469,6 @@ main #pricing .price-card sup {
 main #pricing .price h3 + p {
   font-size: 1.2rem;
   font-weight: 400;
-  margin-bottom: 1rem;
-  line-height: 35px;
 }
 main #pricing .price-card .price {
   font-size: 3.5rem;
@@ -471,23 +510,76 @@ footer a {
   text-decoration: none;
 }
 
-footer .copyright {
-  text-align: center;
+footer {
   font-weight: 400;
   color: #f2f2f2;
   text-transform: capitalize;
+  padding-top: 30px;
 }
-footer .copyright a {
+footer > * {
+  display: block;
+}
+footer .view {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 0;
+  padding-bottom: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+@media screen and (max-width: 600px) {
+  footer .view {
+    padding: 10px 25px;
+  }
+}
+footer hr.view {
+  border: 1px solid #3f3e3e;
+  display: flex;
+  max-width: 80%;
+  text-align: center;
+  margin: 0.35rem auto;
+}
+footer a {
   color: inherit;
-  text-decoration: underline;
+  text-decoration: none;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   margin: 0 0.5rem;
   text-transform: capitalize;
 }
-footer .copyright ul {
+footer ul {
   display: flex;
+  align-items: center;
+  justify-content: center;
+  list-style: none;
+}
+@media screen and (max-width: 600px) {
+  footer .view {
+    display: block;
+    text-align: center;
+  }
+  footer ul {
+    display: block;
+    text-align: center;
+  }
+  footer ul li {
+    margin: 0.75rem 0;
+  }
+  footer ul.socials {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+  }
+  footer hr.view {
+    margin: 0.5rem 0;
+    max-width: 45%;
+    border-width: 1px;
+    border-style: dashed;
+    margin: 0.75rem auto;
+  }
 }
 
 main#login .form-field {

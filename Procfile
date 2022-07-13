@@ -1,1 +1,1 @@
-web: ./target/release/rustly
+web: target/release/rustly

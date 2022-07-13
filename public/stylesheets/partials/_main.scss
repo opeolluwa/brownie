@@ -4,11 +4,36 @@
 
 .container {
   position: relative;
+
+  h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    line-height: 45px;
+    font-stretch: expanded;
+    text-transform: capitalize;
+    line-height: 65px;
+    @media screen and( max-width: 600px) {
+      font-size: 2rem;
+      line-height: 55px;
+    }
+  }
+  p.sub-hero-text {
+    max-width: 80%;
+    line-height: 36px;
+    font-stretch: expanded;
+    font-size: 1.25rem;
+    color: $grey;
+
+    &::first-letter {
+      text-transform: uppercase;
+    }
+  }
 }
 
 main .container {
   #hero {
-    width: 65%;
+    max-width: 65%;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -17,7 +42,8 @@ main .container {
     margin-top: 10vh;
     align-items: center;
     @media screen and( max-width: 600px) {
-      width: 100%;
+      max-width: 85%;
+      margin-bottom: 7.5vh;
       display: block;
     }
   }
@@ -51,8 +77,9 @@ main .container {
     line-height: 36px;
     text-align: center;
     @media screen and( max-width: 600px) {
-      font-size: 1rem;
-      line-height: 25px;
+      // font-size: 1rem;
+      line-height: 36px;
+      margin-bottom: 2rem;
     }
   }
 }
@@ -128,6 +155,14 @@ main .container #about {
   grid-template-columns: repeat(2, 1fr);
   justify-content: space-between;
   align-items: center;
+  text-align: center;
+
+  p {
+    text-align: center !important;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
   @media screen and( max-width: 600px) {
     & {
       display: block;
@@ -139,30 +174,6 @@ main .container #about {
     max-width: 80%;
     @media screen and( max-width: 600px) {
       display: none;
-    }
-  }
-  h2 {
-    font-size: 2.5rem;
-    font-weight: 700;
-    margin-bottom: 1rem;
-    line-height: 45px;
-    font-stretch: expanded;
-    text-transform: capitalize;
-    line-height: 65px;
-    @media screen and( max-width: 600px) {
-      font-size: 2rem;
-      line-height: 55px;
-    }
-  }
-  p.sub-hero-text {
-    max-width: 80%;
-    line-height: 36px;
-    font-stretch: expanded;
-    font-size: 1.25rem;
-    color: $grey;
-
-    &::first-letter {
-      text-transform: uppercase;
     }
   }
 
@@ -188,7 +199,7 @@ main .container #about {
     color: lighten($black, 30);
     padding: 0.75rem 1rem;
     min-height: 2.2rem;
-     @media screen and( max-width: 600px) {
+    @media screen and( max-width: 600px) {
       min-width: 100%;
     }
   }
@@ -196,22 +207,24 @@ main .container #about {
 
 //pricing
 main #pricing {
-  & > h2 {
+  & div.view:first-child {
     text-align: center;
-  }
-  & > div {
-    margin-top: 5rem;
-    display: grid;
-    justify-content: center;
-    grid-template-columns: repeat(2, 450px);
-    grid-template-rows: 500px;
-    column-gap: 5rem;
-  }
-  @media screen and( max-width: 600px) {
-    & > div {
-      grid-template-columns: 1fr;
-      grid-template-rows: 1fr;
+    h2 {
+      margin-bottom: 0;
+      padding: 0;
     }
+    p {
+      max-width: 90%;
+      margin: 0 auto;
+      padding: 0;
+      color: $dark-grey;
+    }
+  }
+
+  & div.view:last-child {
+    display: none!important;
+    flex-direction: column;
+    justify-content: space-between;
   }
   .price-card {
     border: 2px solid $grey;
@@ -253,8 +266,8 @@ main #pricing {
   .price h3 + p {
     font-size: 1.2rem;
     font-weight: 400;
-    margin-bottom: 1rem;
-    line-height: 35px;
+    // margin-bottom: 1rem;
+    // line-height: 35px;
   }
   .price-card .price {
     font-size: 3.5rem;

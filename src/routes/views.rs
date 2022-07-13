@@ -1,9 +1,13 @@
+use chrono::Datelike;
 use rocket_dyn_templates::{context, Template};
 //the home page
 #[get("/")]
-pub fn index() -> &'static str {
-    "hello world"
-    // Template::render("index", context! { title:"Rustly - minimal URL shortener"  })
+pub fn index() -> Template {
+    let current_year = chrono::Utc::now().year();
+    Template::render(
+        "index",
+        context! { title:"Rustly - minimal URL shortener", current_year  },
+    )
 }
 
 //the login page accessible only to unauthenticated users via /auth/login

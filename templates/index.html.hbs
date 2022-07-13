@@ -19,19 +19,23 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"
     />
-
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="static/stylesheets/index.css" />
-    {{! <script src="static/scripts/dist/index.js"></script> }}
-    <style>
-    </style>
+   
   </head>
   <body>
     <header>
-      <nav>
-        <ul class="view">
-          <li>
-            <a href="/">logo</a>
-          </li>
+      <nav class="view nav">
+        <div>
+           <a href="/" class="brand-logo">
+            {{!-- <img src="static/img/logo.png" alt="logo" /> --}}
+            Rust.ly
+          </a>
+        </div>
+        <div class="nav-wrapper ">
+         
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+         
           <li>
             <a href="/">home</a>
           </li>
@@ -42,69 +46,66 @@
             <a href="/#contact">Contact</a>
           </li>
           <li>
-            <a href="/login">login</a>
+            {{!-- <a href="/login">login</a> --}}
           </li>
         </ul>
+        </div>
+        <div class="nav-trigger bi-list d-desktop-none"></div>
       </nav>
     </header>
     <main>
       <div class="container">
-        <div id="hero" class="view">
-          <div>
-            <h1 id="hero-text" class="capitalize">
-              One Short link,
-              <br class="d-desktop" />
-              infinite
-              <span class="gradient">possibilities.</span>
-            </h1>
+      <div id="hero" class="view">
+  <div>
+    <h1 id="hero-text" class="capitalize" >
+      One Short link,
+      <br class="d-desktop" />
+      infinite
+      <span class="gradient">possibilities.</span>
+    </h1>
 
-            <p class="sub-hero">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam,
-              animi iste. Repellendus fugiat nesciunt omnis fuga at eos eligendi
-              asperiores illo praesentium provident laudantium soluta adipisci
-              nulla veniam, saepe dolor!
-            </p>
-            <!--form-->
-            <form action="/api/v1/links/minify" method="post" id="try-now-form">
-              <div class="form-field box-shadow">
-                <input
-                  type="text"
-                  name="uri"
-                  id=""
-                  placeholder="https://example.com/awesome"
-                />
-                <button type="submit" class="btn">try now 🚀  </button>
-                <span class="error-message error">Please enter a valid url starting with http:// or https://</span>
-                <span class="minified-link success"></span>
-              </div>
-            </form>
+    <p class="sub-hero" data-aos="fade-in"  data-aos-easing="ease-out-cubic"
+     data-aos-duration="1700" data-aso-delay="500">
+    transportation pet zoo sang strength facing shown dig planning closer factory rhythm mostly unit poem require seven simplest list visit mistake loss 
+    </p>
+    <!--form-->
+    <form
+      action="/api/v1/links/minify"
+      method="post"
+      id="try-now-form"
+    >
+      <div class="form-field box-shadow">
+        <input
+          type="text"
+          name="uri"
+          id=""
+          placeholder="https://example.com/awesome"
+        />
+        <button type="submit" class="btn">try now 🚀 </button>
+        <span class="error-message error">Please enter a valid url starting with
+          http:// or https://</span>
+        <span class="minified-link success"></span>
+      </div>
+    </form>
 
-            <!--call to action-->
-            <div class="cta d-none">
-              <a href="/login">
-                <button class="btn">get started</button>
-              </a>
-              <a href="/about">
-                <button class="btn">learn more</button>
-              </a>
-            </div>
-          </div>
-         
-        </div>
+  </div>
 
+</div>
         <div id="about" class="view">
          <div class="custom-shape-divider-top-1657562747">
     <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
         <path d="M1200 120L0 16.48 0 0 1200 0 1200 120z" class="shape-fill"></path>
     </svg>
 </div>
-          <div>
-            <h2>everything you need
+          <div class="title" style="text-align: center;">
+            <h2 data-aos="fade-up"  data-aos-easing="ease-out-cubic"
+     data-aos-duration="1500" data-aso-delay="300">everything you need
               <br class="d-desktop" />
               for analysis and audience analysis</h2>
 
-             <p class="sub-hero-text">
-              strike mostly blank helpful let week weight third coal call operation crop driving please nails seed are appropriate nearby alphabet real somewhere heavy face
+             <p class="sub-hero-text" data-aos="fade-in"  data-aos-easing="ease-out-cubic"
+     data-aos-duration="1700" data-aso-delay="500">
+              strike mostly blank helpful let week weight third coal call operation crop driving please nails seed are appropriate nearby alphabet real somewhere heavy face 
              </p>
               <a href="/#pricing" class="btn"> Learn More</a>
           </div>
@@ -113,22 +114,38 @@
             <img src="/static/img/illustration/about.png" alt="about">
           </div>
         </div>
+        
         <div id="pricing">
-          <h2>The right plan for your needs</h2>
-          <div>
+          <div class="view">
+            <h2 data-aos="fade-up"  data-aos-easing="ease-out-cubic"
+     data-aos-duration="1500" data-aso-delay="300">Flexible Plans</h2>
+          <p class="sub-hero-text text-center">We&apos;ve got the right plan for your needs</p>
+          </div>
+
+      
+          <div class="view">
             <div class="price-card">
+              <h3 class="capital">Lite
+              </h3>
+              <p>amet consectetur adipisicing elit.</p>
+              <div class="price"><sup>$</sup> 20 
+              <sub>/ URL</sub></div>
+            </div>
+
+             <div class="price-card">
               <h3 class="capital">Basic
               </h3>
               <p>amet consectetur adipisicing elit.</p>
               <div class="price"><sup>$</sup> 20 
       <sub>/ URL</sub></div>
             </div>
+
             <div class="price-card">
-              <h3 class="capital">Advanced
+              <h3 class="capital">Enteprise
               </h3>
               <p>amet consectetur adipisicing elit.</p>
             <div class="price"><sup>$</sup> 60 
-      <sub>/ URL</sub></div>
+             <sub>/ URL</sub></div>
             </div>
           </div>
         </div>
@@ -136,12 +153,37 @@
       </div>
     </main>
     <footer>
-      <div class="copyright">
-         &copy; 2020
+      <div class="view">
+        <a href="/">Rustly</a>
+        <ul>
+          <li><a href="#">Terms of Use</a></li>
+          <li><a href="#">Privacy policy</a></li>
+          <li><a href="#">Cookie policy</a></li>
+        </ul>
+      </div>
+<hr class="view">
+      <div class="view">
+        <div>
+         &copy; {{current_year}}
         <a href="https://www.linkedin/in/adeoye-ao">Ọpẹ́olúwa</a> 
-        All rights
-        reserved.
+        <span class="d-desktop">All rights
+        reserved.</span>
+      </div>
+        <ul class="socials">
+          <li><a href="https://github.com/opeolluwa" class="bi-github"></a></li>
+          <li><a href="https://twitter.com/_opeolluwa" class="bi-twitter"></a></li>
+          <li><a href="https://www.linked/in/adeoye-ao" class="bi-linkedin"></a></li>
+
+        </ul>
+      </div>
+     
     </footer>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  
+    <script>
+      AOS.init();
+  ;
+    </script>
     <script src="static/scripts/dist/try-now.js"></script>
   </body>
 </html>
