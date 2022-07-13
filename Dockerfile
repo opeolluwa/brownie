@@ -1,6 +1,6 @@
 # FROM rust:1.62.0 as build
 
-# # FROM ekidd/rust-musl-builder:stable as build
+FROM ekidd/rust-musl-builder:stable as builder
 
 # WORKDIR /app
 # COPY . .
@@ -20,7 +20,7 @@
 # CMD ["/app/rustly"]
 
 
-FROM rust:1 as builder
+# FROM rust:1 as builder
 WORKDIR /app
 COPY . .
 RUN cargo install --path .

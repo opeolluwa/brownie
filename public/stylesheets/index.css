@@ -257,6 +257,7 @@ main .container #hero {
   }
 }
 main .container h1 {
+  font-size: 3.5rem;
   font-weight: 700;
   margin-bottom: 1rem;
   line-height: 65px;
@@ -287,8 +288,8 @@ main .container h1 + p {
 }
 @media screen and (max-width: 600px) {
   main .container h1 + p {
-    font-size: 1rem;
-    line-height: 25px;
+    line-height: 36px;
+    margin-bottom: 2rem;
   }
 }
 
@@ -360,6 +361,13 @@ main .container #about {
   grid-template-columns: repeat(2, 1fr);
   justify-content: space-between;
   align-items: center;
+  text-align: center;
+}
+main .container #about p {
+  text-align: center !important;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
 }
 @media screen and (max-width: 600px) {
   main .container #about {
@@ -405,6 +413,24 @@ main .container #about a.btn {
   }
 }
 
+main #pricing div.view:first-child {
+  text-align: center;
+}
+main #pricing div.view:first-child h2 {
+  margin-bottom: 0;
+  padding: 0;
+}
+main #pricing div.view:first-child p {
+  max-width: 90%;
+  margin: 0 auto;
+  padding: 0;
+  color: #7d7d7d;
+}
+main #pricing div.view:last-child {
+  display: none !important;
+  flex-direction: column;
+  justify-content: space-between;
+}
 main #pricing .price-card {
   border: 2px solid #e6e6e6;
   border-radius: 12px;
@@ -443,8 +469,6 @@ main #pricing .price-card sup {
 main #pricing .price h3 + p {
   font-size: 1.2rem;
   font-weight: 400;
-  margin-bottom: 1rem;
-  line-height: 35px;
 }
 main #pricing .price-card .price {
   font-size: 3.5rem;

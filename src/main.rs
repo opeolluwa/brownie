@@ -7,7 +7,6 @@ use rocket::fs::{relative, FileServer}; //for serving static files
 use rocket_dyn_templates::Template; //for parsing of templates
 use routes::*;
 
-
 mod models;
 mod routes; //import the route handlers from the routes module //import the models from the models module
 
@@ -17,7 +16,7 @@ mod routes; //import the route handlers from the routes module //import the mode
 // pub struct RustlyDatastore(sqlx::MySqlPool);
 
 #[launch]
-fn rocket() -> _ {
+async fn rocket() -> _ {
    
     rocket::build()
         //views

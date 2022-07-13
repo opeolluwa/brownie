@@ -19,7 +19,7 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"
     />
-
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="static/stylesheets/index.css" />
    
   </head>
@@ -57,18 +57,16 @@
       <div class="container">
       <div id="hero" class="view">
   <div>
-    <h1 id="hero-text" class="capitalize">
+    <h1 id="hero-text" class="capitalize" >
       One Short link,
       <br class="d-desktop" />
       infinite
       <span class="gradient">possibilities.</span>
     </h1>
 
-    <p class="sub-hero">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam, animi
-      iste. Repellendus fugiat nesciunt omnis fuga at eos eligendi asperiores
-      illo praesentium provident laudantium soluta adipisci nulla veniam, saepe
-      dolor!
+    <p class="sub-hero" data-aos="fade-in"  data-aos-easing="ease-out-cubic"
+     data-aos-duration="1700" data-aso-delay="500">
+    transportation pet zoo sang strength facing shown dig planning closer factory rhythm mostly unit poem require seven simplest list visit mistake loss 
     </p>
     <!--form-->
     <form
@@ -100,12 +98,14 @@
     </svg>
 </div>
           <div class="title" style="text-align: center;">
-            <h2>everything you need
+            <h2 data-aos="fade-up"  data-aos-easing="ease-out-cubic"
+     data-aos-duration="1500" data-aso-delay="300">everything you need
               <br class="d-desktop" />
               for analysis and audience analysis</h2>
 
-             <p class="sub-hero-text">
-              strike mostly blank helpful let week weight third coal call operation crop driving please nails seed are appropriate nearby alphabet real somewhere heavy face
+             <p class="sub-hero-text" data-aos="fade-in"  data-aos-easing="ease-out-cubic"
+     data-aos-duration="1700" data-aso-delay="500">
+              strike mostly blank helpful let week weight third coal call operation crop driving please nails seed are appropriate nearby alphabet real somewhere heavy face 
              </p>
               <a href="/#pricing" class="btn"> Learn More</a>
           </div>
@@ -116,8 +116,13 @@
         </div>
         
         <div id="pricing">
-          <h2>Flexible Plans</h2>
+          <div class="view">
+            <h2 data-aos="fade-up"  data-aos-easing="ease-out-cubic"
+     data-aos-duration="1500" data-aso-delay="300">Flexible Plans</h2>
           <p class="sub-hero-text text-center">We&apos;ve got the right plan for your needs</p>
+          </div>
+
+      
           <div class="view">
             <div class="price-card">
               <h3 class="capital">Lite
@@ -173,6 +178,12 @@
       </div>
      
     </footer>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  
+    <script>
+      AOS.init();
+  ;
+    </script>
     <script src="static/scripts/dist/try-now.js"></script>
   </body>
 </html>
