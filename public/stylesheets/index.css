@@ -273,6 +273,7 @@ main .container h1 {
 main .container h1 .gradient {
   background: linear-gradient(90deg, #4d2088 0%, #6437a0, #aa3f61, #ff5e64, #ff7747, #fb9633);
   background-clip: text;
+  -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   text-decoration: underline 2px solid red;
 }
@@ -413,6 +414,12 @@ main .container #about a.btn {
   }
 }
 
+main #pricing {
+  /*  & div.view:last-child {
+    flex-direction: column;
+    justify-content: space-between;
+  } */
+}
 main #pricing div.view:first-child {
   text-align: center;
 }
@@ -426,20 +433,15 @@ main #pricing div.view:first-child p {
   padding: 0;
   color: #7d7d7d;
 }
-main #pricing div.view:last-child {
-  display: none !important;
-  flex-direction: column;
-  justify-content: space-between;
-}
 main #pricing .price-card {
   border: 2px solid #e6e6e6;
   border-radius: 12px;
   transition: 300ms ease;
   transition-delay: 100ms;
   transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
-  padding: 0;
-  margin: 0;
+  padding: 10px;
   text-align: center;
+  min-height: 45vh;
 }
 main #pricing .price-card:hover {
   background: #6437a0;
@@ -454,7 +456,7 @@ main #pricing .price-card h3 {
   line-height: 45px;
   font-stretch: expanded;
   text-transform: uppercase;
-  line-height: 65px;
+  margin-bottom: 0;
 }
 main #pricing .price-card sub,
 main #pricing .price-card sup {
@@ -466,16 +468,13 @@ main #pricing .price-card sup {
   border-radius: 0;
   color: #7d7d7d;
 }
-main #pricing .price h3 + p {
-  font-size: 1.2rem;
-  font-weight: 400;
-}
 main #pricing .price-card .price {
   font-size: 3.5rem;
   display: block;
   text-align: center;
   position: relative;
   bottom: 2px;
+  margin-top: 5rem;
 }
 
 .custom-shape-divider-top-1657562747 {
@@ -554,6 +553,8 @@ footer ul {
   align-items: center;
   justify-content: center;
   list-style: none;
+  padding: 0;
+  margin: 0;
 }
 @media screen and (max-width: 600px) {
   footer .view {
