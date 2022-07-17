@@ -576,6 +576,7 @@ footer ul {
   }
   footer hr.view {
     margin: 0.5rem 0;
+    padding: 0;
     max-width: 45%;
     border-width: 1px;
     border-style: dashed;

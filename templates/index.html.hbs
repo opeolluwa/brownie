@@ -30,6 +30,11 @@
     />
     <link
       rel="stylesheet"
+      href="https://unpkg.com/swiper@8/swiper-bundle.min.css"
+    />
+
+    <link
+      rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"
     />
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
@@ -167,7 +172,8 @@
               for your needs</p>
           </div>
 
-          <div class="owl-carousel owl-theme view">
+         
+          <div class="view d-none">
             <div class="price-card">
               <h3 class="capital">Lite
               </h3>
@@ -234,30 +240,10 @@
     </footer>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="static/scripts/dist/jquery-3.6.0.min.js"></script>
-
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
     <script src="static/scripts/dist/owl.carousel.min.js"></script>
-
     <script>
-      AOS.init();$('.owl-carousel').owlCarousel({
-    loop:true,
-    margin:10,
-    responsiveClass:true,
-    responsive:{
-        0:{
-            items:1,
-            nav:true
-        },
-        600:{
-            items:3,
-            nav:false
-        },
-        1000:{
-            items:5,
-            nav:true,
-            loop:false
-        }
-    }
-})
+      AOS.init();
     </script>
     <script src="static/scripts/dist/try-now.js"></script>
   </body>
